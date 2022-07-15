@@ -1,0 +1,730 @@
+{
+    "Categories" :[
+        {
+            "CategoryId": 1,
+            "SubcategoryId": 1,
+            "Category": "Supermarché",
+            "Subcategory": "Alimentaire"
+        },
+        {
+            "CategoryId": 1,
+            "SubcategoryId": 2,
+            "Category": "Supermarché",
+            "Subcategory": "Outils de nettoyage"
+        },
+        {
+            "CategoryId": 1,
+            "SubcategoryId": 3,
+            "Category": "Supermarché",
+            "Subcategory": "Boisson"
+        },
+        {
+            "CategoryId": 2,
+            "SubcategoryId": 1,
+            "Category": "Pour la maison",
+            "Subcategory": "Meuble"
+        },
+        {
+            "CategoryId": 2,
+            "SubcategoryId": 2,
+            "Category": "Pour la maison",
+            "Subcategory": "Décoration"
+        },
+        {
+            "CategoryId": 2,
+            "SubcategoryId": 3,
+            "Category": "Pour la maison",
+            "Subcategory": "Literie"
+        },
+        {
+            "CategoryId": 2,
+            "SubcategoryId": 4,
+            "Category": "Pour la maison",
+            "Subcategory": "Cuisine"
+        },
+        {
+            "CategoryId": 2,
+            "SubcategoryId": 5,
+            "Category": "Pour la maison",
+            "Subcategory": "Salle de bain"
+        },
+        {
+            "CategoryId": 3,
+            "SubcategoryId": 1,
+            "Category": "Électroménager",
+            "Subcategory": "Petit électroménager"
+        },
+        {
+            "CategoryId": 3,
+            "SubcategoryId": 2,
+            "Category": "Électroménager",
+            "Subcategory": "Télévision"
+        },
+        {
+            "CategoryId": 3,
+            "SubcategoryId": 3,
+            "Category": "Électroménager",
+            "Subcategory": "Réfrigérateur"
+        },
+        {
+            "CategoryId": 3,
+            "SubcategoryId": 4,
+            "Category": "Électroménager",
+            "Subcategory": "Congélateur"
+        },
+        {
+            "CategoryId": 3,
+            "SubcategoryId": 5,
+            "Category": "Électroménager",
+            "Subcategory": "Machine à laver"
+        },
+        {
+            "CategoryId": 3,
+            "SubcategoryId": 6,
+            "Category": "Électroménager",
+            "Subcategory": "Gazinière"
+        },
+        {
+            "CategoryId": 3,
+            "SubcategoryId": 7,
+            "Category": "Électroménager",
+            "Subcategory": "Ventilateur"
+        },
+        {
+            "CategoryId": 3,
+            "SubcategoryId": 8,
+            "Category": "Électroménager",
+            "Subcategory": "Climatiseur"
+        },
+        {
+            "CategoryId": 4,
+            "SubcategoryId": 1,
+            "Category": "Beauté et hygiène",
+            "Subcategory": "Parfum"
+        },
+        {
+            "CategoryId": 4,
+            "SubcategoryId": 2,
+            "Category": "Beauté et hygiène",
+            "Subcategory": "Maquillage"
+        },
+        {
+            "CategoryId": 4,
+            "SubcategoryId": 3,
+            "Category": "Beauté et hygiène",
+            "Subcategory": "Soin personnel"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 1,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Vêtement femme"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 2,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Vêtement homme"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 3,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Chaussures"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 4,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Bijou"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 5,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Montre"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 6,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Lunettes"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 7,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Chapeau"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 8,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Perruque"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 9,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Sac"
+        },
+        {
+            "CategoryId": 5,
+            "SubcategoryId": 10,
+            "Category": "Mode et vêtement",
+            "Subcategory": "Bagage de voyage"
+        },
+        {
+            "CategoryId": 6,
+            "SubcategoryId": 1,
+            "Category": "Bureau et fourniture",
+            "Subcategory": "Table de bureau"
+        },
+        {
+            "CategoryId": 6,
+            "SubcategoryId": 2,
+            "Category": "Bureau et fourniture",
+            "Subcategory": "Chaise "
+        },
+        {
+            "CategoryId": 6,
+            "SubcategoryId": 3,
+            "Category": "Bureau et fourniture",
+            "Subcategory": "Armoire"
+        },
+        {
+            "CategoryId": 6,
+            "SubcategoryId": 4,
+            "Category": "Bureau et fourniture",
+            "Subcategory": "Fourniture de bureau"
+        },
+        {
+            "CategoryId": 6,
+            "SubcategoryId": 5,
+            "Category": "Bureau et fourniture",
+            "Subcategory": "Papier et carton"
+        },
+        {
+            "CategoryId": 7,
+            "SubcategoryId": 1,
+            "Category": "Informatique",
+            "Subcategory": "Ordinateur"
+        },
+        {
+            "CategoryId": 7,
+            "SubcategoryId": 2,
+            "Category": "Informatique",
+            "Subcategory": "Écran"
+        },
+        {
+            "CategoryId": 7,
+            "SubcategoryId": 3,
+            "Category": "Informatique",
+            "Subcategory": "Imprimante et scanner"
+        },
+        {
+            "CategoryId": 7,
+            "SubcategoryId": 4,
+            "Category": "Informatique",
+            "Subcategory": "Périphérique et accessoire"
+        },
+        {
+            "CategoryId": 7,
+            "SubcategoryId": 5,
+            "Category": "Informatique",
+            "Subcategory": "Disque dur"
+        },
+        {
+            "CategoryId": 7,
+            "SubcategoryId": 6,
+            "Category": "Informatique",
+            "Subcategory": "Logiciel"
+        },
+        {
+            "CategoryId": 8,
+            "SubcategoryId": 1,
+            "Category": "Électronique",
+            "Subcategory": "Caméra digital"
+        },
+        {
+            "CategoryId": 8,
+            "SubcategoryId": 2,
+            "Category": "Électronique",
+            "Subcategory": "Home cinéma"
+        },
+        {
+            "CategoryId": 8,
+            "SubcategoryId": 3,
+            "Category": "Électronique",
+            "Subcategory": "Lecteur MP3"
+        },
+        {
+            "CategoryId": 8,
+            "SubcategoryId": 4,
+            "Category": "Électronique",
+            "Subcategory": "Décodeur"
+        },
+        {
+            "CategoryId": 8,
+            "SubcategoryId": 5,
+            "Category": "Électronique",
+            "Subcategory": "Stabilisateur"
+        },
+        {
+            "CategoryId": 8,
+            "SubcategoryId": 6,
+            "Category": "Électronique",
+            "Subcategory": "Caméra de surveillance"
+        },
+        {
+            "CategoryId": 8,
+            "SubcategoryId": 7,
+            "Category": "Électronique",
+            "Subcategory": "Système de sécurité"
+        },
+        {
+            "CategoryId": 9,
+            "SubcategoryId": 1,
+            "Category": "Téléphone et tablette",
+            "Subcategory": "Téléphone portable"
+        },
+        {
+            "CategoryId": 9,
+            "SubcategoryId": 2,
+            "Category": "Téléphone et tablette",
+            "Subcategory": "Accessoire téléphone "
+        },
+        {
+            "CategoryId": 9,
+            "SubcategoryId": 3,
+            "Category": "Téléphone et tablette",
+            "Subcategory": "Tablette"
+        },
+        {
+            "CategoryId": 9,
+            "SubcategoryId": 4,
+            "Category": "Téléphone et tablette",
+            "Subcategory": "Montre connectée"
+        },
+        {
+            "CategoryId": 9,
+            "SubcategoryId": 5,
+            "Category": "Téléphone et tablette",
+            "Subcategory": "Écouteur Bluetooth"
+        },
+        {
+            "CategoryId": 10,
+            "SubcategoryId": 1,
+            "Category": "Jeu vidéo et jouet",
+            "Subcategory": "Console"
+        },
+        {
+            "CategoryId": 10,
+            "SubcategoryId": 2,
+            "Category": "Jeu vidéo et jouet",
+            "Subcategory": "Jeu de console"
+        },
+        {
+            "CategoryId": 10,
+            "SubcategoryId": 3,
+            "Category": "Jeu vidéo et jouet",
+            "Subcategory": "Abonnement Playstation"
+        },
+        {
+            "CategoryId": 10,
+            "SubcategoryId": 4,
+            "Category": "Jeu vidéo et jouet",
+            "Subcategory": "Jeu PC"
+        },
+        {
+            "CategoryId": 10,
+            "SubcategoryId": 5,
+            "Category": "Jeu vidéo et jouet",
+            "Subcategory": "Jouet pour enfant"
+        },
+        {
+            "CategoryId": 10,
+            "SubcategoryId": 6,
+            "Category": "Jeu vidéo et jouet",
+            "Subcategory": "Jeu éducatif"
+        },
+        {
+            "CategoryId": 10,
+            "SubcategoryId": 7,
+            "Category": "Jeu vidéo et jouet",
+            "Subcategory": "Jeu de plein air"
+        },
+        {
+            "CategoryId": 10,
+            "SubcategoryId": 8,
+            "Category": "Jeu vidéo et jouet",
+            "Subcategory": "Vélo"
+        },
+        {
+            "CategoryId": 11,
+            "SubcategoryId": 1,
+            "Category": "Pour le bébé",
+            "Subcategory": "Aliment bébé"
+        },
+        {
+            "CategoryId": 11,
+            "SubcategoryId": 2,
+            "Category": "Pour le bébé",
+            "Subcategory": "Couche"
+        },
+        {
+            "CategoryId": 11,
+            "SubcategoryId": 3,
+            "Category": "Pour le bébé",
+            "Subcategory": "Soin bébé"
+        },
+        {
+            "CategoryId": 11,
+            "SubcategoryId": 4,
+            "Category": "Pour le bébé",
+            "Subcategory": "Chambre pour bébé"
+        },
+        {
+            "CategoryId": 11,
+            "SubcategoryId": 5,
+            "Category": "Pour le bébé",
+            "Subcategory": "Vêtement et accessoire"
+        },
+        {
+            "CategoryId": 11,
+            "SubcategoryId": 6,
+            "Category": "Pour le bébé",
+            "Subcategory": "Poussette et accessoire"
+        },
+        {
+            "CategoryId": 12,
+            "SubcategoryId": 1,
+            "Category": "Sport et loisir",
+            "Subcategory": "Instrument de sport"
+        },
+        {
+            "CategoryId": 12,
+            "SubcategoryId": 2,
+            "Category": "Sport et loisir",
+            "Subcategory": "Vêtement de sport"
+        },
+        {
+            "CategoryId": 12,
+            "SubcategoryId": 3,
+            "Category": "Sport et loisir",
+            "Subcategory": "Machine de sport"
+        },
+        {
+            "CategoryId": 12,
+            "SubcategoryId": 4,
+            "Category": "Sport et loisir",
+            "Subcategory": "Accessoire de sport"
+        },
+        {
+            "CategoryId": 12,
+            "SubcategoryId": 5,
+            "Category": "Sport et loisir",
+            "Subcategory": "Table de billard"
+        },
+        {
+            "CategoryId": 12,
+            "SubcategoryId": 6,
+            "Category": "Sport et loisir",
+            "Subcategory": "Table de babyfoot"
+        },
+        {
+            "CategoryId": 13,
+            "SubcategoryId": 1,
+            "Category": "Livre et art",
+            "Subcategory": "Livre"
+        },
+        {
+            "CategoryId": 13,
+            "SubcategoryId": 2,
+            "Category": "Livre et art",
+            "Subcategory": "Magazine"
+        },
+        {
+            "CategoryId": 13,
+            "SubcategoryId": 3,
+            "Category": "Livre et art",
+            "Subcategory": "Film"
+        },
+        {
+            "CategoryId": 13,
+            "SubcategoryId": 4,
+            "Category": "Livre et art",
+            "Subcategory": "Instrument de musique"
+        },
+        {
+            "CategoryId": 13,
+            "SubcategoryId": 5,
+            "Category": "Livre et art",
+            "Subcategory": "Tableau de peinture"
+        },
+        {
+            "CategoryId": 14,
+            "SubcategoryId": 1,
+            "Category": "Animalerie",
+            "Subcategory": "Chien et chiot à adopter"
+        },
+        {
+            "CategoryId": 14,
+            "SubcategoryId": 2,
+            "Category": "Animalerie",
+            "Subcategory": "Chat et chaton à adopter"
+        },
+        {
+            "CategoryId": 14,
+            "SubcategoryId": 3,
+            "Category": "Animalerie",
+            "Subcategory": "Oiseau à adopter"
+        },
+        {
+            "CategoryId": 14,
+            "SubcategoryId": 4,
+            "Category": "Animalerie",
+            "Subcategory": "Aquarium et poisson"
+        },
+        {
+            "CategoryId": 14,
+            "SubcategoryId": 5,
+            "Category": "Animalerie",
+            "Subcategory": "Accessoire animaux"
+        },
+        {
+            "CategoryId": 14,
+            "SubcategoryId": 6,
+            "Category": "Animalerie",
+            "Subcategory": "Nourriture animaux"
+        },
+        {
+            "CategoryId": 15,
+            "SubcategoryId": 1,
+            "Category": "Véhicule",
+            "Subcategory": "Voiture à vendre"
+        },
+        {
+            "CategoryId": 15,
+            "SubcategoryId": 2,
+            "Category": "Véhicule",
+            "Subcategory": "Voiture à louer"
+        },
+        {
+            "CategoryId": 15,
+            "SubcategoryId": 3,
+            "Category": "Véhicule",
+            "Subcategory": "Pièce de rechange"
+        },
+        {
+            "CategoryId": 15,
+            "SubcategoryId": 4,
+            "Category": "Véhicule",
+            "Subcategory": "Pneu et accessoire"
+        },
+        {
+            "CategoryId": 15,
+            "SubcategoryId": 5,
+            "Category": "Véhicule",
+            "Subcategory": "Motocycle"
+        },
+        {
+            "CategoryId": 16,
+            "SubcategoryId": 1,
+            "Category": "Immobilier",
+            "Subcategory": "Location longue durée"
+        },
+        {
+            "CategoryId": 16,
+            "SubcategoryId": 2,
+            "Category": "Immobilier",
+            "Subcategory": "Location temporaire"
+        },
+        {
+            "CategoryId": 16,
+            "SubcategoryId": 3,
+            "Category": "Immobilier",
+            "Subcategory": "Chambre à louer et colocation"
+        },
+        {
+            "CategoryId": 16,
+            "SubcategoryId": 4,
+            "Category": "Immobilier",
+            "Subcategory": "Espace commercial à louer"
+        },
+        {
+            "CategoryId": 16,
+            "SubcategoryId": 5,
+            "Category": "Immobilier",
+            "Subcategory": "Bureau à louer"
+        },
+        {
+            "CategoryId": 16,
+            "SubcategoryId": 6,
+            "Category": "Immobilier",
+            "Subcategory": "Entreposage et stationnement"
+        },
+        {
+            "CategoryId": 16,
+            "SubcategoryId": 7,
+            "Category": "Immobilier",
+            "Subcategory": "Appartement à vendre"
+        },
+        {
+            "CategoryId": 16,
+            "SubcategoryId": 8,
+            "Category": "Immobilier",
+            "Subcategory": "Terrain à vendre"
+        },
+        {
+            "CategoryId": 17,
+            "SubcategoryId": 1,
+            "Category": "Jardin",
+            "Subcategory": "BBQ et cuisine en plein air"
+        },
+        {
+            "CategoryId": 17,
+            "SubcategoryId": 2,
+            "Category": "Jardin",
+            "Subcategory": "Terrasse et clôture"
+        },
+        {
+            "CategoryId": 17,
+            "SubcategoryId": 3,
+            "Category": "Jardin",
+            "Subcategory": "Tondeuse"
+        },
+        {
+            "CategoryId": 17,
+            "SubcategoryId": 4,
+            "Category": "Jardin",
+            "Subcategory": "Décoration et éclairage extérieur"
+        },
+        {
+            "CategoryId": 17,
+            "SubcategoryId": 5,
+            "Category": "Jardin",
+            "Subcategory": "Plante et engrais"
+        },
+        {
+            "CategoryId": 17,
+            "SubcategoryId": 6,
+            "Category": "Jardin",
+            "Subcategory": "Piscine et accessoire"
+        },
+        {
+            "CategoryId": 18,
+            "SubcategoryId": 1,
+            "Category": "Quincaillerie",
+            "Subcategory": "Outillage"
+        },
+        {
+            "CategoryId": 18,
+            "SubcategoryId": 2,
+            "Category": "Quincaillerie",
+            "Subcategory": "Électroportatif"
+        },
+        {
+            "CategoryId": 18,
+            "SubcategoryId": 3,
+            "Category": "Quincaillerie",
+            "Subcategory": "Carreau"
+        },
+        {
+            "CategoryId": 18,
+            "SubcategoryId": 4,
+            "Category": "Quincaillerie",
+            "Subcategory": "Matériel de construction"
+        },
+        {
+            "CategoryId": 18,
+            "SubcategoryId": 5,
+            "Category": "Quincaillerie",
+            "Subcategory": "Plomberie"
+        },
+        {
+            "CategoryId": 18,
+            "SubcategoryId": 6,
+            "Category": "Quincaillerie",
+            "Subcategory": "Électricité"
+        },
+        {
+            "CategoryId": 18,
+            "SubcategoryId": 7,
+            "Category": "Quincaillerie",
+            "Subcategory": "Outil de bricolage"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 1,
+            "Category": "Service",
+            "Subcategory": "Voyage et vacances"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 2,
+            "Category": "Service",
+            "Subcategory": "Santé et beauté"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 3,
+            "Category": "Service",
+            "Subcategory": "Mariage"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 4,
+            "Category": "Service",
+            "Subcategory": "Main d'œuvre"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 5,
+            "Category": "Service",
+            "Subcategory": "Gardiennage"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 6,
+            "Category": "Service",
+            "Subcategory": "Ménage et entretien"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 7,
+            "Category": "Service",
+            "Subcategory": "Entraîneur personnel"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 8,
+            "Category": "Service",
+            "Subcategory": "Déménagement"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 9,
+            "Category": "Service",
+            "Subcategory": "Cours de musique"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 10,
+            "Category": "Service",
+            "Subcategory": "Tutorat et langue"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 11,
+            "Category": "Service",
+            "Subcategory": "Photographie et vidéo"
+        },
+        {
+            "CategoryId": 19,
+            "SubcategoryId": 12,
+            "Category": "Service",
+            "Subcategory": "Nourriture et traiteur"
+        }
+    ]
+}
