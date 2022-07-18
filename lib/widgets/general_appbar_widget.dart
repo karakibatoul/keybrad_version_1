@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../Utils/app_theme.dart';
 
 
 class GeneralAppbar extends StatelessWidget {
@@ -12,13 +11,13 @@ class GeneralAppbar extends StatelessWidget {
   final String menuIcon;
   final Color backgroundColor;
 
-  GeneralAppbar({
+  const GeneralAppbar({Key? key,
 
      this.assetImage='',
      this.searchIcon='',
      this.menuIcon='',
      this.backgroundColor=Colors.white,
-});
+}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

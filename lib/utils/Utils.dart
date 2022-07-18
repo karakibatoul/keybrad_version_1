@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Utils {
@@ -33,11 +31,9 @@ class Utils {
 
     if (cropImage == null) {
       {
-        print('cropImage ==null');
-        return File(imageFile.path);
-      }
+        return File(imageFile.path);}
     } else {
-      print('in else');
+
       final file = File(imageFile.path);
       // return File(pickedFile.path);
 

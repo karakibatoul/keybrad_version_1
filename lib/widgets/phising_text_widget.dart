@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-class PhisingTextWidget extends StatefulWidget {
+class PhishingTextWidget extends StatefulWidget {
 
   final String text;
 
 
-   PhisingTextWidget({
+    const PhishingTextWidget({Key? key,
     required this.text,
-  }) ;
+  }) : super(key: key) ;
 
   @override
-  State<PhisingTextWidget> createState() => _PhisingTextWidgetState();
+  State<PhishingTextWidget> createState() => _PhishingTextWidgetState();
 }
 
-class _PhisingTextWidgetState extends State<PhisingTextWidget> {
+class _PhishingTextWidgetState extends State<PhishingTextWidget> {
 
-  TextStyle style = TextStyle(fontSize: 20,overflow: TextOverflow.visible,);
+  TextStyle style = const TextStyle(fontSize: 20,overflow: TextOverflow.visible,);
   @override
   Widget build(BuildContext context) {
     return Text(widget.text,style: style,);

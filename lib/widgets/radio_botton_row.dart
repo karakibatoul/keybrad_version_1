@@ -17,7 +17,7 @@ class _RadioButtonRowState extends State<RadioButtonRow> {
   Widget build(BuildContext context) {
     menuitem? _mitem = menuitem.item1;
     return  Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,

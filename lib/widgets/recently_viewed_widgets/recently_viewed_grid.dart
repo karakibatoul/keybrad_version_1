@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:keybrad/widgets/items_favorite_widget/items_widget_favorite.dart';
 import 'package:keybrad/widgets/recently_viewed_widgets/recently_viewed_item.dart';
 import 'package:provider/provider.dart';
 import '../../providers/items.dart';

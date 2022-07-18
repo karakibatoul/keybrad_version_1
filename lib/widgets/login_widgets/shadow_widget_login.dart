@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:keybrad/Utils/app_theme.dart';
 import 'package:keybrad/widgets/login_widgets/half_background_widget.dart';
 import 'package:keybrad/widgets/login_widgets/log_in_model.dart';
-import 'package:keybrad/widgets/login_widgets/sign_up_model.dart';
 
 class ShadowWidgetLogin extends StatelessWidget {
   const ShadowWidgetLogin({Key? key}) : super(key: key);
@@ -10,7 +8,7 @@ class ShadowWidgetLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-      Container(
+      SizedBox(
         //height: 500,
 
         // height: double.infinity,
@@ -98,7 +96,7 @@ class ShadowWidgetLogin extends StatelessWidget {
             print("hello1");
             print(MediaQuery.of(context).size.height);
           },)*/
-                      LoginModel()
+                      const LoginModel()
                   ),
                 ),
               ],

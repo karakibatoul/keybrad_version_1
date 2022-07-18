@@ -1,14 +1,8 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' as rootBundle;
-import 'package:keybrad/models/cities.dart';
-import 'package:keybrad/widgets/single_selection_listview.dart';
-
-import '../widgets/search_widget.dart';
 
 class TryScreen extends StatefulWidget {
-   TryScreen({Key? key}) : super(key: key);
+   const TryScreen({Key? key}) : super(key: key);
    static const routeName = '/try_screen';
 
   @override
@@ -64,7 +58,7 @@ class _TryScreenState extends State<TryScreen> {
         _starValue = double.parse(startController.text).roundToDouble();
       });
     }
-    print("Second text field: ${startController.text}");
+
   }
 
   _setEndValue() {
@@ -78,7 +72,7 @@ class _TryScreenState extends State<TryScreen> {
         _endValue = double.parse(endController.text).roundToDouble();
       });
     }
-    print("Second text field: ${endController.text}");
+
   }
 
   @override
@@ -101,18 +95,18 @@ class _TryScreenState extends State<TryScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.all(20),
+              margin:const  EdgeInsets.all(20),
               child: TextField(
                 
-                decoration: InputDecoration(
+                decoration:const  InputDecoration(
                     border: InputBorder.none, hintText: 'Enter  start value'),
                 controller: startController,
               ),
             ),
             Container(
-              margin:EdgeInsets.all(20),
+              margin:const EdgeInsets.all(20),
               child: TextField(
-              decoration: InputDecoration(
+              decoration:const  InputDecoration(
                   border: InputBorder.none, hintText: 'Enter end value'),
               controller: endController,
             ),),
@@ -131,7 +125,7 @@ class _TryScreenState extends State<TryScreen> {
                 });
               },
             ),
-            Text(
+            const Text(
               'You have pushed the button this many times:',
             ),
             Text(
@@ -144,7 +138,7 @@ class _TryScreenState extends State<TryScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child:const  Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

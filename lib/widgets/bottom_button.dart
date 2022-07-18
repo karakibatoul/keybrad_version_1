@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_button/flutter_animated_button.dart';
+
 
 class BottomButton extends StatelessWidget {
   //const BottomButton({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class BottomButton extends StatelessWidget {
   final double width;
   final double height;
 
-  BottomButton({
+  const BottomButton({Key? key,
     required this.buttonLabel,
     required this.buttonBackground,
     required this.buttonOnPressed,
@@ -22,7 +22,7 @@ class BottomButton extends StatelessWidget {
     required this.labelFontWeight,
     required this.width,
     required this.height
-});
+}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class BottomButton extends StatelessWidget {
           decoration:  BoxDecoration(
               color: buttonBackground,
               borderRadius:
-              BorderRadius.all(Radius.circular(30.0))),
+             const  BorderRadius.all(Radius.circular(30.0))),
           child:  Center(
 
             child: Text(buttonLabel,

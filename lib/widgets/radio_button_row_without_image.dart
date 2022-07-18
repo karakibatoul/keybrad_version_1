@@ -17,7 +17,7 @@ class _RadioButtonRowWithoutImageState extends State<RadioButtonRowWithoutImage>
   Widget build(BuildContext context) {
     menuitem? _mitem = menuitem.item1;
     return  Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -28,7 +28,7 @@ class _RadioButtonRowWithoutImageState extends State<RadioButtonRowWithoutImage>
               contentPadding: const EdgeInsets.symmetric(horizontal: 8),
               horizontalTitleGap: 0,
               dense: true,
-              title: Text('Prix négociable'),
+              title: const Text('Prix négociable'),
               leading: Radio<menuitem>(
                 activeColor: AppTheme.radioButtonColor,
                 value: menuitem.item1,
@@ -47,7 +47,7 @@ class _RadioButtonRowWithoutImageState extends State<RadioButtonRowWithoutImage>
               contentPadding: const EdgeInsets.symmetric(horizontal: 8),
               horizontalTitleGap: 0,
               dense: true,
-              title: Text('Prix final'),
+              title: const Text('Prix final'),
               leading: Radio<menuitem>(
                 value: menuitem.item2,
                 activeColor: AppTheme.radioButtonColor,

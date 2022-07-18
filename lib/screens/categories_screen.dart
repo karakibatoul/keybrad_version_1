@@ -4,7 +4,6 @@ import 'package:keybrad/screens/landing_all_empty_screen.dart';
 import 'package:keybrad/widgets/items_widget/categories_grid.dart';
 import 'package:keybrad/widgets/items_widget/items_grid_final.dart';
 
-import '../widgets/items_widget/animated_categories_grid.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);

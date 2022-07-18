@@ -15,7 +15,7 @@ import '../Utils/app_theme.dart';
 import '../widgets/address_details_widget.dart';
 import '../widgets/back_widget.dart';
 import '../widgets/circular_stack.dart';
-import '../widgets/profile_textField_widget.dart';
+import '../widgets/profile_text_field_widget.dart';
 
 
 
@@ -189,7 +189,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                   Container(
                       padding:const EdgeInsets.only(bottom: 10),
                       width: MediaQuery.of(context).size.width/5,
-                      child: BackWidget(height: 35, width:35 )),
+                      child: const BackWidget(height: 35, width:35 )),
                   SizedBox(
                     width: MediaQuery.of(context).size.width*1/2+50,
                     child: Column(children: const [
@@ -223,7 +223,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                 flex: 2,
                   child: prixTextField),
               SizedBox(height: 2.h,),
-              Flexible(
+              const Flexible(
                   flex: 5,
                   child:RadioGroup()),
               SizedBox(height: 2.h,),

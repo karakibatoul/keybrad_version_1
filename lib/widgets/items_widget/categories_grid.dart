@@ -15,7 +15,7 @@ class _CategoriesGridState extends State<CategoriesGrid> {
 
 
   // The key of the list
-  final GlobalKey<AnimatedListState> _key = GlobalKey();
+  //final GlobalKey<AnimatedListState> _key = GlobalKey();
 
   @override
   Widget build(BuildContext context) {

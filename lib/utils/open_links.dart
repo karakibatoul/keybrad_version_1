@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/foundation.dart';
+
 
 class OpenLinks {
   static Future openLink({

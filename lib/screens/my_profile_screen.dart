@@ -7,12 +7,10 @@ import 'package:keybrad/widgets/address_details_widget.dart';
 import 'package:keybrad/widgets/back_widget.dart';
 import 'package:keybrad/widgets/bouncing_widget.dart';
 import 'package:keybrad/widgets/location_widget.dart';
-import 'package:keybrad/widgets/profile_textField_widget.dart';
+import 'package:keybrad/widgets/profile_text_field_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../Utils/app_theme.dart';
-import '../widgets/selection_listview_widgets/city_selection_listview.dart';
-import 'cities_list_screen.dart';
+
 
 class MyProfileScreen extends StatelessWidget {
   const MyProfileScreen({Key? key}) : super(key: key);
@@ -31,9 +29,9 @@ class MyProfileScreen extends StatelessWidget {
 
     Widget imageWidget =
     Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin:const   EdgeInsets.symmetric(horizontal: 20),
       child: Row(children: [
-      CircleAvatar(
+      const CircleAvatar(
         radius: 50,
         backgroundColor: Colors.white,
         child: CircleAvatar(
@@ -57,11 +55,11 @@ class MyProfileScreen extends StatelessWidget {
     Widget topWidget =
     Container(
 
-      margin: EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 20),
       child: Row(children: [
         Container(
             margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 15),
-            child: BackWidget(height: 35, width: 35)),
+            child: const BackWidget(height: 35, width: 35)),
         const Spacer(),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 35),
@@ -92,7 +90,7 @@ class MyProfileScreen extends StatelessWidget {
 
 
               ),
-              Text('Enregistrer',style: TextStyle(color: AppTheme.greyTextColor),)
+             const  Text('Enregistrer',style: TextStyle(color: AppTheme.greyTextColor),)
             ],
           )
           ,

@@ -9,6 +9,8 @@ import 'privacy_policy_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SignUpModel extends StatefulWidget {
+  const SignUpModel({Key? key}) : super(key: key);
+
   @override
   State<SignUpModel> createState() => _SignUpModelState();
 }
@@ -38,11 +40,13 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
     duration: const Duration(seconds: 2),
     vsync: this,
   )..repeat(reverse: true);
-  late final  Animation<double> _animation =
+  /*late final  Animation<double> _animation =
   CurvedAnimation(
     parent: _controller,
     curve: Curves.elasticOut,
   );
+
+   */
 
 
   @override
@@ -60,7 +64,7 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
 
    */
 
-  double _size = 9.h;
+  /*double _size = 9.h;
   bool _large = false;
 
   void _updateSize() {
@@ -69,6 +73,8 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
       _large = !_large;
     });
   }
+
+   */
 
 
   String text = "text";
@@ -209,8 +215,8 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
                     //  height: 2.h,
                       alignment: Alignment.center,
                       child: RichText(
-                        text: new TextSpan(text: ' ', children: [
-                          new TextSpan(
+                        text: TextSpan(text: ' ', children: [
+                           TextSpan(
                             text: 'Se connecter',
                             style: TextStyle(
                                 overflow: TextOverflow.visible,
@@ -218,7 +224,7 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
                                 fontSize: 20.sp,
                                 fontWeight: FontWeight.bold),
 
-                            recognizer: new TapGestureRecognizer()..onTap = () => Navigator.of(context).pushNamed(LoginScreen.routeName),
+                            recognizer:  TapGestureRecognizer()..onTap = () => Navigator.of(context).pushNamed(LoginScreen.routeName),
                           )
                         ]),
                       ),
@@ -231,8 +237,8 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
                       alignment: Alignment.center,
                    //   height: 2.h,
                       child: RichText(
-                        text: new TextSpan(text: ' ', children: [
-                          new TextSpan(
+                        text:  TextSpan(text: ' ', children: [
+                           TextSpan(
                             text: 'S\' inscrire',
                             style: TextStyle(
                                 overflow: TextOverflow.visible,
@@ -240,7 +246,7 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
                                 fontSize: 20.sp,
                                 fontWeight: FontWeight.bold),
 
-                            recognizer: new TapGestureRecognizer()..onTap = () =>  Navigator.of(context)
+                            recognizer:  TapGestureRecognizer()..onTap = () =>  Navigator.of(context)
                                 .pushNamed(SignUpScreen.routeName),
                           )
                         ]),
@@ -512,7 +518,7 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
                     //fit: FlexFit.tight,
                     child: Align(
                         alignment: Alignment.bottomCenter,
-                        child: privacyPolicyLinkAndTermsOfService())),
+                        child: PrivacyPolicyLinkAndTermsOfService())),
               SizedBox(height: 3.h,)
 
             ],

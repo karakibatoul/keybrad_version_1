@@ -1,6 +1,5 @@
 
 import 'dart:async';
-import 'dart:ui';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:keybrad/screens/item_edit_screen.dart';
@@ -66,10 +65,10 @@ class _ItemDetailsState extends State<ItemDetails> {
         Container(
            // width: MediaQuery.of(context).size.width/5,
           margin: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
-        child: BackWidget(height: 40, width: 40)),
+        child: const BackWidget(height: 40, width: 40)),
                 const Spacer(),
                  Container(
-                   margin: EdgeInsets.only(right: 10),
+                   margin: const EdgeInsets.only(right: 10),
             child:
             Row(children:
             [widget.indexPage==1?DeleteWidget(onTap: (){},)
@@ -261,9 +260,8 @@ class _ItemDetailsState extends State<ItemDetails> {
 
                   Flexible(
                     flex: 3,
-                    child: Container(
+                    child: SizedBox(
                       width: 20.w,
-
                       child:
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,

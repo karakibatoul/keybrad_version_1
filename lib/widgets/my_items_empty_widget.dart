@@ -72,7 +72,6 @@ class _MyItemsEmptyWidgetState extends State<MyItemsEmptyWidget> {
                 child: InkWell(
 
                   onTap: () {
-                    print(widget.addImageHeight);
 
                   },
                   child: SizedBox(

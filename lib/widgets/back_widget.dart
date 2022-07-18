@@ -10,10 +10,10 @@ class BackWidget extends StatelessWidget {
   //const BackWidget({Key? key}) : super(key: key);
   final double height;
   final double width;
-   BackWidget({
+   const BackWidget({Key? key,
     required this.height,
     required this.width,
-});
+}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

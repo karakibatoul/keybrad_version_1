@@ -4,7 +4,7 @@ import 'package:keybrad/providers/item_image.dart';
 
 class ItemImages with ChangeNotifier{
 
-  List<ItemImage> _images = [];
+  final List<ItemImage> _images = [];
 
 
   List<ItemImage> get images {
@@ -21,7 +21,6 @@ class ItemImages with ChangeNotifier{
     final newImage = ItemImage(imagePath: itemImage.imagePath);
 
     _images.add(newImage);
-    print('images:$_images');
     //_items.insert(0, newProduct);//to add it the beginning of the list
     notifyListeners();
   }

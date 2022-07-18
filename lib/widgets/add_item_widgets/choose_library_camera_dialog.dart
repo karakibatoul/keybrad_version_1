@@ -7,13 +7,12 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
-import 'package:keybrad/screens/image_filter_screen.dart';
 import 'package:keybrad/screens/image_filter_screen_without_filters.dart';
 import 'package:photofilters/filters/filters.dart';
 import 'package:photofilters/filters/preset_filters.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../Utils/filter_utils.dart';
-import '../../screens/take_picture_screen.dart';
+
 
 
 class ChooseLibraryCameraDialog extends StatefulWidget {
@@ -74,10 +73,10 @@ class _ChooseLibraryCameraDialogState extends State<ChooseLibraryCameraDialog> {
 
               ),),
           ),
-          Divider(color: Colors.grey,),
+         const  Divider(color: Colors.grey,),
           TextButton(
               onPressed: (){
-                print('image bouba:$image');
+
              //   Navigator.pushNamed(context, TakePictureScreen.routeName);
               }, child:
         Container(
@@ -88,10 +87,10 @@ class _ChooseLibraryCameraDialogState extends State<ChooseLibraryCameraDialog> {
                 fontSize: 17.sp
           ),)
         )),
-          Divider(color: Colors.grey,),
+         const  Divider(color: Colors.grey,),
           TextButton(
               onPressed: (){
-                print('pickImage before:$image');
+
 
                /* Image.memory(
                     Uint8List.fromList(list),
@@ -100,7 +99,7 @@ class _ChooseLibraryCameraDialogState extends State<ChooseLibraryCameraDialog> {
 
                 */
                 Navigator.pushNamed(context, ImageFilterScreenWithoutFilters.routeName);
-                print('pickImage after:$image');
+
 
               }, child:
           Container(
@@ -111,7 +110,7 @@ class _ChooseLibraryCameraDialogState extends State<ChooseLibraryCameraDialog> {
                     fontSize: 17.sp
                 ),)
           )),
-          Divider(color: Colors.grey,),
+
           TextButton(
               onPressed: (){
                 Navigator.of(context).pop();

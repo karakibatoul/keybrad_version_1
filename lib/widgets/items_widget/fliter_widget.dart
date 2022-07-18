@@ -1,14 +1,10 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:keybrad/Utils/app_theme.dart';
 import 'package:keybrad/widgets/location_widget.dart';
 import 'package:keybrad/widgets/search_widget/checkbox_row.dart';
 import 'package:keybrad/widgets/selection_listview_widgets/city_selection_listview.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'dart:convert';
-
-import '../../screens/cities_list_screen.dart';
 import '../search_widget/slider_widget.dart';
 import '../two_horizontal_buttons.dart';
 
@@ -16,13 +12,15 @@ class FilterWidget extends StatefulWidget {
   
   static const routeName = '/filter_widget';
 
+  const FilterWidget({Key? key}) : super(key: key);
+
   @override
   State<FilterWidget> createState() => _FilterWidgetState();
 }
 
 
 class _FilterWidgetState extends State<FilterWidget> {
-  var selectedRange = RangeValues(200, 2000);
+  var selectedRange = const RangeValues(200, 2000);
   String minRange = '200 ';
   String maxRange = '2000 ';
   var locationController = TextEditingController();
@@ -63,7 +61,6 @@ class _FilterWidgetState extends State<FilterWidget> {
         });
       }}
 
-    print("Second text field: ${startController.text}");
   }
 
   _setEndValue() {
@@ -83,8 +80,6 @@ class _FilterWidgetState extends State<FilterWidget> {
       }
     }
 
-
-    print("Second text field: ${endController.text}");
   }
   bool isNumeric(String s) {
     if (s == null) {
@@ -118,7 +113,7 @@ class _FilterWidgetState extends State<FilterWidget> {
        setState(() {
        final  args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
          for(int i=0;i<args.nbrOfCities;i++){
-           locationString  =locationString + args.city[i].Name +',' ;
+           locationString  =locationString + args.city[i].name +',' ;
          }
          locationString = locationString.toString().substring(0,locationString.length-1);
 
@@ -138,7 +133,7 @@ class _FilterWidgetState extends State<FilterWidget> {
 
 
 
-    Widget slider = SliderTheme(data:  const SliderThemeData(
+    /*Widget slider = SliderTheme(data:  const SliderThemeData(
       trackHeight: 1,
 
     ), child: RangeSlider(
@@ -175,42 +170,37 @@ class _FilterWidgetState extends State<FilterWidget> {
         Expanded(
          // flex: 1,
          // fit: FlexFit.loose,
-          child: Container(
-           // margin: EdgeInsets.only(left: 15),
-           // height: 7.h,
-            child: TextButton(
-
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Container(
-                  width: 160,
-                  height: 5.h,
-                  decoration: const BoxDecoration(
-                      color: AppTheme.greyTextFieldColor,
-                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                  child: Padding(
-                    padding: const EdgeInsets.all(0),
-                    child: Center(
-                      child: RichText(
-                        text:  TextSpan(
-                            style:  TextStyle(fontSize: 16.5.sp, color: AppTheme.filterLabelColor),
-                            children: [
-                              const TextSpan(text: 'Min: '),
-                              TextSpan(
-                                  text: minRange + ' ',
-                                  style:const TextStyle(color: AppTheme.filterMinMaxColor)),
-                              //here the currency is constant but it will be the currency of the item selected
-                               TextSpan(
-                                  text: 'FCFA',
-                                  style: TextStyle(
-                                      fontSize: 12.5.sp,
-                                      color: AppTheme.greyTextColor))
-                            ]),
-                      ),
+          child: TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Container(
+                width: 160,
+                height: 5.h,
+                decoration: const BoxDecoration(
+                    color: AppTheme.greyTextFieldColor,
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                child: Padding(
+                  padding: const EdgeInsets.all(0),
+                  child: Center(
+                    child: RichText(
+                      text:  TextSpan(
+                          style:  TextStyle(fontSize: 16.5.sp, color: AppTheme.filterLabelColor),
+                          children: [
+                            const TextSpan(text: 'Min: '),
+                            TextSpan(
+                                text: minRange + ' ',
+                                style:const TextStyle(color: AppTheme.filterMinMaxColor)),
+                            //here the currency is constant but it will be the currency of the item selected
+                             TextSpan(
+                                text: 'FCFA',
+                                style: TextStyle(
+                                    fontSize: 12.5.sp,
+                                    color: AppTheme.greyTextColor))
+                          ]),
                     ),
-                  )),
-            ),
+                  ),
+                )),
           ),
         ),
         Expanded(
@@ -252,30 +242,10 @@ class _FilterWidgetState extends State<FilterWidget> {
         ),
       ],
 
-    ) ,)
- ;
-    Widget priceWidget = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-         Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 2.h,vertical: 1.5.h),
-          child: Text('Prix',style: TextStyle(
-            fontSize: 16.sp,
-            //fontWeight: FontWeight.w700,
-              color:
-          AppTheme.itemPriceColor),),
-        ),
-       //const SizedBox(height: 3),
-        slider,
-       const SizedBox(
-        //  height: 3,
-        ),
-        minAndMaxRow,
-        SizedBox(
-          height: 1.h,
-        )
-      ],
-    );
+    ) ,);
+
+     */
+
 
     Widget backWidget = Container(
      // margin: const EdgeInsets.only(top: 24, right: 24, bottom: 10, left: 24),
@@ -308,7 +278,7 @@ class _FilterWidgetState extends State<FilterWidget> {
 
 
     return Dialog(
-      insetPadding: EdgeInsets.all(20),
+      insetPadding: const EdgeInsets.all(20),
       backgroundColor: Colors.white,
 
       shape: const RoundedRectangleBorder(

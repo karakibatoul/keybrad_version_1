@@ -12,8 +12,8 @@ class ImageListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GridView.count(
-    physics: BouncingScrollPhysics(),
-    padding: EdgeInsets.all(12),
+    physics: const BouncingScrollPhysics(),
+    padding:const  EdgeInsets.all(12),
     crossAxisCount: 2,
     crossAxisSpacing: 12,
     mainAxisSpacing: 12,

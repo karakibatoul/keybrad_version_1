@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:keybrad/screens/add_item_step_2_screen.dart';
-import 'package:keybrad/screens/take_picture_screen.dart';
 import 'package:keybrad/widgets/radio_group_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Utils/app_theme.dart';
 import '../widgets/address_details_widget.dart';
-import '../widgets/back_widget.dart';
 import 'dart:io' as file;
-import '../widgets/profile_textField_widget.dart';
+import '../widgets/profile_text_field_widget.dart';
 
 
 class EditItemScreen extends StatefulWidget {
@@ -28,28 +26,23 @@ class _EditItemScreenState extends State<EditItemScreen> {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
     final args = ModalRoute.of(context)!.settings.arguments ;
-    print('imagge: $args');
-    for(int i=0;i<images.length;i++){
-      print('before image list: $i :${images}');
-    }
+
     setState(() {
 
       images.add(args.toString());
     });
 
-    for(int i=0;i<images.length;i++){
-      print('after image list: $i :${images}');
-    }
+
   }
 
 
 
   @override
   Widget build(BuildContext context) {
-    menuitem? _mitem = menuitem.item1;
+   // menuitem? _mitem = menuitem.item1;
     final  telephoneController = TextEditingController();
     final prixController = TextEditingController();
-    final locationController = TextEditingController();
+   // final locationController = TextEditingController();
 
 
     Widget prixTextField = Container(
@@ -86,23 +79,23 @@ class _EditItemScreenState extends State<EditItemScreen> {
 
           suffixIcon: Container(
               width: 3.w,
-              padding: EdgeInsets.only(right: 10),
+              padding: const EdgeInsets.only(right: 10),
 
               alignment: Alignment.centerRight,
-              child: Text('FCFA',style: TextStyle(color: AppTheme.greyTextColor),)),
+              child:const  Text('FCFA',style: TextStyle(color: AppTheme.greyTextColor),)),
           hintStyle:  TextStyle(
             color: AppTheme.filterLabelColor,
             fontSize: 17.sp,
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: AppTheme.greyBackgroundColor,
             ),
             borderRadius: BorderRadius.circular(10.0),
           ),
           filled: true,
           fillColor: AppTheme.greyTextFieldColor,
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
         ),
       ),
     );
@@ -132,9 +125,9 @@ class _EditItemScreenState extends State<EditItemScreen> {
                   flex: 1,
                   child: prixTextField),
               SizedBox(height: 2.h,),
-              Flexible(
+              const Flexible(
                   flex: 4,
-                  child:RadioGroup()),
+                  child: RadioGroup()),
 
 
               SizedBox(height: 2.h,),
@@ -246,13 +239,13 @@ class _EditItemScreenState extends State<EditItemScreen> {
                                   child: Image.asset('assets/icons/checkboxOff.png',height: 20,width: 20,))
                             ],
                           ),
-                          Container(
+                          SizedBox(
                               width: MediaQuery.of(context).size.width/6-4.w,
                               child: Image.asset('assets/images/NewItem_background.png')),
-                          Container(
+                          SizedBox(
                               width: MediaQuery.of(context).size.width/6-4.w,
                               child: Image.asset('assets/images/NewItem_background.png')),
-                          Container(
+                          SizedBox(
                               width: MediaQuery.of(context).size.width/6-4.w,
                               child: Image.asset('assets/images/NewItem_background.png')),
 

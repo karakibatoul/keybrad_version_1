@@ -4,9 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:keybrad/widgets/bouncing_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../Utils/app_theme.dart';
-import '../widgets/my_items_empty_widget.dart';
 import 'add_item_screen.dart';
 
 

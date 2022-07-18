@@ -2,22 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:keybrad/screens/add_item_step_2_screen.dart';
-import 'package:keybrad/screens/categories_screen.dart';
-import 'package:keybrad/screens/item_edit_screen.dart';
 import 'package:keybrad/screens/login_screen.dart';
-import 'package:keybrad/screens/show_picture_final%20_screen.dart';
 import 'package:keybrad/screens/sign_up_screen.dart';
-import 'package:keybrad/screens/try_screen.dart';
 import 'package:keybrad/widgets/login_widgets/forget_pass.dart';
-import 'package:keybrad/widgets/login_widgets/login_textfield_widget.dart';
 import '../../screens/add_item_screen.dart';
 import '../../screens/tabs_screen.dart';
 import '/Utils/app_theme.dart';
-import 'privacy_policy_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LoginModel extends StatefulWidget {
+  const LoginModel({Key? key}) : super(key: key);
+
   @override
   State<LoginModel> createState() => _LoginModelState();
 }
@@ -47,11 +42,13 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
     duration: const Duration(seconds: 2),
     vsync: this,
   )..repeat(reverse: true);
-  late final  Animation<double> _animation =
+  /*late final  Animation<double> _animation =
   CurvedAnimation(
     parent: _controller,
     curve: Curves.elasticOut,
   );
+
+
   late final  Animation<double> _fingerAnimation =
   CurvedAnimation(
     parent: _controller,
@@ -59,13 +56,12 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
   );
 
 
+   */
+
 
   String text = "text";
-
-  double _width = 12.h;
-  double _height = 12.h ;
-
   bool _isObscure = true;
+
   @override
   Widget build(BuildContext context) {
     //in the second stage every textField will have a controller
@@ -202,8 +198,8 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
                         //  height: 2.h,
                         alignment: Alignment.center,
                         child: RichText(
-                          text: new TextSpan(text: ' ', children: [
-                            new TextSpan(
+                          text:  TextSpan(text: ' ', children: [
+                             TextSpan(
                               text: 'Se connecter',
                               style: TextStyle(
                                   overflow: TextOverflow.visible,
@@ -211,7 +207,7 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.bold),
 
-                              recognizer: new TapGestureRecognizer()..onTap = () => Navigator.of(context).pushNamed(LoginScreen.routeName),
+                              recognizer:  TapGestureRecognizer()..onTap = () => Navigator.of(context).pushNamed(LoginScreen.routeName),
                             )
                           ]),
                         ),
@@ -224,8 +220,8 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
                         alignment: Alignment.center,
                         //   height: 2.h,
                         child: RichText(
-                          text: new TextSpan(text: ' ', children: [
-                            new TextSpan(
+                          text:  TextSpan(text: ' ', children: [
+                             TextSpan(
                               text: 'S\' inscrire',
                               style: TextStyle(
                                   overflow: TextOverflow.visible,
@@ -233,7 +229,7 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.bold),
 
-                              recognizer: new TapGestureRecognizer()..onTap = () =>  Navigator.of(context)
+                              recognizer:  TapGestureRecognizer()..onTap = () =>  Navigator.of(context)
                                   .pushNamed(SignUpScreen.routeName),
                             )
                           ]),
@@ -313,7 +309,7 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
                       child: Container(
                         alignment: Alignment.center,
                       //  margin: EdgeInsets.only(bottom: 10),
-                        child:  ForgetPass(),),
+                        child:  const ForgetPass(),),
                     )
                ),
             Flexible(

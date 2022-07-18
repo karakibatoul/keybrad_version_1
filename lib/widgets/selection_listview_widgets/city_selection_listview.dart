@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:keybrad/widgets/items_widget/fliter_widget.dart';
 import 'package:provider/provider.dart';
 import '../../Utils/app_theme.dart';
 import '../../Utils/city_utils.dart';
@@ -11,16 +10,16 @@ import 'city_listtile_widget.dart';
 
 
 class CitySelectionListview extends StatefulWidget {
-  static final routeName = '/city_selection_listview_screen';
+  static const  routeName = '/city_selection_listview_screen';
   final bool isMultiSelection;
   final List<City> countries;
   final String returnPage;
 
-  const CitySelectionListview({
+   const CitySelectionListview({Key? key,
     this.isMultiSelection = true,
     this.countries = const [],
     this.returnPage = ''
-  });
+  }) : super(key: key);
 @override
   _CitySelectionListviewState createState() => _CitySelectionListviewState();
 }
@@ -38,7 +37,7 @@ class _CitySelectionListviewState extends State<CitySelectionListview> {
 
 
   bool containsSearchText(City country) {
-    final name =  country.Name;
+    final name =  country.name;
     final textLower = text.toLowerCase();
     final countryLower = name.toLowerCase();
 

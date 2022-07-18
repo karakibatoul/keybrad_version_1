@@ -11,9 +11,8 @@ import 'package:keybrad/providers/item_images.dart';
 import 'package:keybrad/providers/item_images_prime.dart';
 import 'dart:io' as file;
 import 'package:keybrad/screens/add_item_screen.dart';
-import 'package:keybrad/screens/show_picture_final%20_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 
 class DisplayPictureScreen extends StatefulWidget {
@@ -66,12 +65,10 @@ class _DisplayPictureScreenState extends State<DisplayPictureScreen> {
                           Provider.of<ItemImagesPrime>(context, listen: false).addItemImagePrime(ItemImagePrime(imagePath: widget.imagePath, isGallary: false));
                         }
                         else {
-                          print('more than six');
+
                         //  Provider.of<ItemImagesPrime>(context, listen: false).images.clear();
                         }
                         setState(() {
-
-                          print('batoul:${productsData.images}');
                           //print('hello spring:${productsData.images[0].imagePath}');
                         });
 
@@ -81,7 +78,6 @@ class _DisplayPictureScreenState extends State<DisplayPictureScreen> {
                             count=0;
                           }
                         });
-                        print('count:$count');
                     Navigator.pushReplacementNamed(context, AddItemScreen.routeName,arguments:ImageArguments(widget.imagePath, count) );
                   }, child:const  Text('Use Photo',style: TextStyle(color: Colors.white,
                     //fontSize: 18.sp

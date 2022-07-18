@@ -2,7 +2,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:keybrad/screens/try_screen.dart';
 import 'package:keybrad/widgets/location_widget.dart';
 import 'package:keybrad/widgets/search_widget/grid_widget.dart';
 import 'package:keybrad/widgets/search_widget/slider_widget.dart';
@@ -10,7 +9,7 @@ import 'package:keybrad/widgets/two_horizontal_buttons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Utils/app_theme.dart';
 import '../widgets/bouncing_widget.dart';
-import '../widgets/profile_textField_widget.dart';
+import '../widgets/profile_text_field_widget.dart';
 import '../widgets/search_widget/checkbox_row.dart';
 import '../widgets/selection_listview_widgets/city_selection_listview.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
@@ -95,7 +94,6 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
       });
     }}
 
-    print("Second text field: ${startController.text}");
   }
 
   _setEndValue() {
@@ -114,9 +112,6 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
         });
       }
     }
-
-
-    print("Second text field: ${endController.text}");
   }
   bool isNumeric(String s) {
     if (s == null) {
@@ -216,7 +211,7 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
         setState(() {
           final  args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
           for(int i=0;i<args.nbrOfCities;i++){
-            locationString  =locationString + args.city[i].Name +',' ;
+            locationString  =locationString + args.city[i].name +',' ;
           }
           locationString = locationString.toString().substring(0,locationString.length-1);
 
@@ -306,7 +301,7 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
 
     var articleController = TextEditingController();
 
-    Widget tryPriceWidget =
+    /*Widget tryPriceWidget =
     Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.start,
@@ -481,8 +476,7 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
 
 
     ],
-    )
-    ;
+    );
 
     Widget slider =
     SliderTheme(data:  const SliderThemeData(
@@ -504,8 +498,6 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
         onChangeStart:(RangeValues newRange) {
           setState(() {
             minRange = selectedRange.start.toString();
-            print("maxRange");
-            print(minRange);
 
           });
         } ,
@@ -513,8 +505,6 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
           setState(() {
             selectedRange = newRange;
             minRange = selectedRange.start.toString();
-            print("minRange");
-            print(minRange);
             maxRange = selectedRange.end.toString();
             setState(() {
               minController.text = maxRange;
@@ -528,39 +518,37 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
       child:   Row(
         children: [
           Expanded(
-            child: Container(
-              child: TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Container(
-                    width: 160,
-                    height: 5.h,
-                    decoration: const BoxDecoration(
-                        color: AppTheme.greyTextFieldColor,
-                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                    child: Padding(
-                      padding: const EdgeInsets.all(0),
-                      child: Center(
-                        child: RichText(
-                          text:  TextSpan(
-                              style:  TextStyle(fontSize: 16.5.sp, color: AppTheme.filterLabelColor),
-                              children: [
-                                const TextSpan(text: 'Min: '),
-                                TextSpan(
-                                    text: minRange + ' ',
-                                    style:const TextStyle(color: AppTheme.filterMinMaxColor)),
-                                //here the currency is constant but it will be the currency of the item selected
-                                TextSpan(
-                                    text: 'FCFA',
-                                    style: TextStyle(
-                                        fontSize: 12.5.sp,
-                                        color: AppTheme.greyTextColor))
-                              ]),
-                        ),
+            child:  TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Container(
+                  width: 160,
+                  height: 5.h,
+                  decoration: const BoxDecoration(
+                      color: AppTheme.greyTextFieldColor,
+                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(0),
+                    child: Center(
+                      child: RichText(
+                        text:  TextSpan(
+                            style:  TextStyle(fontSize: 16.5.sp, color: AppTheme.filterLabelColor),
+                            children: [
+                              const TextSpan(text: 'Min: '),
+                              TextSpan(
+                                  text: minRange + ' ',
+                                  style:const TextStyle(color: AppTheme.filterMinMaxColor)),
+                              //here the currency is constant but it will be the currency of the item selected
+                              TextSpan(
+                                  text: 'FCFA',
+                                  style: TextStyle(
+                                      fontSize: 12.5.sp,
+                                      color: AppTheme.greyTextColor))
+                            ]),
                       ),
-                    )),
-              ),
+                    ),
+                  )),
             ),
           ),
           Expanded(
@@ -745,30 +733,8 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
         ],
 
       ) ,);
+    */
 
-    Widget priceWidget = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding:  EdgeInsets.symmetric(vertical: 25,horizontal: 30),
-          child: Text('Prix',style: TextStyle(
-              fontSize: 17.sp,
-              fontWeight: FontWeight.w700,
-              color:
-              AppTheme.itemPriceColor),),
-        ),
-        //const SizedBox(height: 3),
-        slider,
-        const SizedBox(
-          //  height: 3,
-        ),
-        minAndMaxRowTry,
-        //MinMaxRow(maxRange: maxRange, minRange: minRange,),
-        SizedBox(
-          height: 1.h,
-        )
-      ],
-    );
 
 
     AppBar appbar = AppBar(
@@ -819,7 +785,7 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
           ),
         )],),);
 
-    Widget iconButton = TextButton(
+    /*Widget iconButton = TextButton(
       onPressed: () {
         Navigator.of(context).pop();
       },
@@ -854,6 +820,7 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
             ],)
       ),
     );
+    */
     return Scaffold(
         appBar: appbar,
       body: SingleChildScrollView(

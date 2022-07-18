@@ -10,7 +10,7 @@ class ShareWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width/6,
       child: Column(
         children: [

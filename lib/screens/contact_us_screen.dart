@@ -111,11 +111,11 @@ class ContactUsScreen extends StatelessWidget {
                Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Flexible(
+                      const Flexible(
                         flex: 1,
                         fit: FlexFit.loose,
-                        child: Padding(
-                            padding: const EdgeInsets.only(top: 15,bottom: 20,right: 0,left: 20),
+                        child:  Padding(
+                            padding:  EdgeInsets.only(top: 15,bottom: 20,right: 0,left: 20),
                             child: BackWidget(width: 35,height: 35,))
                       ),
 

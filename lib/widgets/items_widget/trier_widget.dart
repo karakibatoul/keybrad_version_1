@@ -2,9 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:keybrad/Utils/app_theme.dart';
-import 'package:animated_radio_buttons/animated_radio_buttons.dart';
 import 'package:keybrad/widgets/bouncing_widget.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 class TrierWidget extends StatefulWidget {
   const TrierWidget({Key? key}) : super(key: key);
@@ -21,8 +20,8 @@ class _TrierWidgetState extends State<TrierWidget>  with SingleTickerProviderSta
 
   double _popImageWidth = 35;
   double _popImageHeight = 35;
-  double _trierWidth = 170;
-  double _trierHeight = 45;
+  final double _trierWidth = 170;
+  final double _trierHeight = 45;
 
   Color radioButtonTextColorInActive = AppTheme.radioButtonTextColor;
   Color radioButtonTextColorActive = AppTheme.radioButtonColor;
@@ -34,7 +33,6 @@ class _TrierWidgetState extends State<TrierWidget>  with SingleTickerProviderSta
 
   late double _scale;
   late AnimationController _controller;
-  late AnimationController _popController;
   @override
   void initState() {
 
@@ -56,11 +54,6 @@ class _TrierWidgetState extends State<TrierWidget>  with SingleTickerProviderSta
   }
   menuitem? _mitem = menuitem.item1;
   int? myVar = 1;
-  void _tapDown(TapDownDetails details) {
-    _controller.forward();
-  }void _tapUp(TapUpDetails details) {
-    _controller.reverse();
-  }
 
   @override
   Widget build(BuildContext context) {

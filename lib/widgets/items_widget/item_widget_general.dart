@@ -10,10 +10,10 @@ class ItemWidgetGeneral extends StatelessWidget {
   final String image;
   final Item item;
 
-  ItemWidgetGeneral({
+   const ItemWidgetGeneral({Key? key,
     required this.image,
     required this.item
-});
+}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

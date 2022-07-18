@@ -3,10 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:keybrad/Utils/app_theme.dart';
 import 'package:keybrad/widgets/items_favorite_widget/items_grid_favorites.dart';
-import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
-import '../../providers/items.dart';
 import '../bouncing_widget.dart';
 import '../items_widget/fliter_widget.dart';
 import '../items_widget/trier_widget.dart';
@@ -18,8 +15,7 @@ class ItemsGridFinalFavorite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final itemsData = Provider.of<Items>(context);
-    final items = itemsData.items;
+
     Widget filterButton = Row(
       children: [
         SafeArea(
@@ -46,7 +42,7 @@ class ItemsGridFinalFavorite extends StatelessWidget {
                         var curve = Curves.easeInOut.transform(a1.value);
                         return Transform.scale(
                           scale: curve,
-                          child: FilterWidget(),
+                          child: const FilterWidget(),
                         );
                       },
                       transitionDuration: const Duration(milliseconds: 300),

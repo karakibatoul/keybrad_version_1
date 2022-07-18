@@ -9,13 +9,11 @@ import 'package:keybrad/Utils/app_theme.dart';
 import 'package:keybrad/providers/item_image_prime.dart';
 import 'package:keybrad/providers/item_images_prime.dart';
 import 'package:keybrad/screens/add_item_screen.dart';
-import 'package:keybrad/screens/item_details.dart';
 import 'package:photofilters/filters/filters.dart';
 import 'package:photofilters/filters/preset_filters.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Utils/filter_utils.dart';
-import '../providers/imageFiles.dart';
 import '../widgets/filters_widget/filtered_image_list_widget.dart';
 import '../widgets/filters_widget/filtered_image_widget.dart';
 
@@ -39,10 +37,9 @@ class _ImageFilterScreenState extends State<ImageFilterScreen> {
     super.initState();
     Future.delayed(Duration.zero,() {
       var  args = ModalRoute.of(context).settings.arguments;
-      print('google:$args');
       if(args!=null) {
         setState(() {
-            this.image = args as img.Image;
+            image = args as img.Image;
 
         });
       }
@@ -53,17 +50,17 @@ class _ImageFilterScreenState extends State<ImageFilterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final imageFiles = Provider.of<ImageFiles>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
           IconButton(
-            icon: Icon(Icons.add_a_photo),
+            icon: const Icon(Icons.add_a_photo),
             onPressed: pickImage,
           ),
           IconButton(
-            icon: Icon(Icons.refresh),
+            icon:const  Icon(Icons.refresh),
             onPressed: () {
               setState(() {
                 filter = presetFiltersList[3];
@@ -71,12 +68,11 @@ class _ImageFilterScreenState extends State<ImageFilterScreen> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.save),
+            icon:const  Icon(Icons.save),
             onPressed: () {
-              if (this.image!=null){
+              if (image!=null){
                 Provider.of<ItemImagesPrime>(context, listen: false).addItemImagePrime(
                     ItemImagePrime(imagePath: '',isGallary: true,image: image,filter: filter));
-                print('boubaty${ Provider.of<ItemImagesPrime>(context,listen: false).images}');
                 Navigator.pushNamed(context, AddItemScreen.routeName);
               }
 
@@ -158,9 +154,9 @@ class _ImageFilterScreenState extends State<ImageFilterScreen> {
               fit: BoxFit.contain),
 
       errorBuilder: () => Container(height: height),
-      loadingBuilder: () => Container(
+      loadingBuilder: () => const SizedBox(
         height: height,
-        child:const Center(child: CircularProgressIndicator()),
+        child: Center(child: CircularProgressIndicator()),
       ),
     );
   }

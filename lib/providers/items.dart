@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'item_provider.dart';
-import 'package:provider/provider.dart';
-import 'categories.dart';
+
 
 class Items with ChangeNotifier {
   //it is not final bcs it will change
 
-  List<Item> _items = [
+ final  List<Item> _items = [
     Item(
         1,
         1,

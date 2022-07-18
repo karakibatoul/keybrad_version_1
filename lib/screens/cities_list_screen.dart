@@ -2,8 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:keybrad/Utils/app_theme.dart';
-import 'package:flutter/services.dart' as rootBundle;
-import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' as root_bundle;
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import '../models/cities.dart';
 import '../widgets/items_widget/fliter_widget.dart';
@@ -21,7 +20,7 @@ class  CitiesListScreen extends StatefulWidget {
 class _CitiesListScreenState extends State<CitiesListScreen> {
   late List _items = [];
   Future<void> readJson() async {
-    final String response = await rootBundle.rootBundle.loadString('assets/jsonFiles/Cities.json');
+    final String response = await root_bundle.rootBundle.loadString('assets/jsonFiles/Cities.json');
     //  final String response = await rootBundle.AssetBundleloadString('assets/jsonFiles/Cities.json');
     final data = await json.decode(response);
     setState(() {
@@ -43,7 +42,7 @@ class _CitiesListScreenState extends State<CitiesListScreen> {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: TypeAheadField<City?>(
                     hideSuggestionsOnKeyboardHide: true,
                     hideOnEmpty: false,
@@ -65,17 +64,17 @@ class _CitiesListScreenState extends State<CitiesListScreen> {
                       decoration: InputDecoration(
                         
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: AppTheme.greyTitleColor ),
+                          borderSide: const BorderSide(color: AppTheme.greyTitleColor ),
                           borderRadius: BorderRadius.circular(20),
 
                         ),
 
 
 
-                        prefixIcon: Icon(Icons.search,color: AppTheme.greyTitleColor,),
+                        prefixIcon: const Icon(Icons.search,color: AppTheme.greyTitleColor,),
                         focusColor: Colors.black,
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: AppTheme.greyTitleColor ),
+                          borderSide:const  BorderSide(color: AppTheme.greyTitleColor ),
                           borderRadius: BorderRadius.circular(20),
 
                         ),
@@ -93,7 +92,7 @@ class _CitiesListScreenState extends State<CitiesListScreen> {
                         ),
                         margin: const EdgeInsets.all(0),
                         child: ListTile(
-                          title: Text(user.Name),
+                          title: Text(user.name),
                         ),
                       );
                     },
@@ -112,7 +111,7 @@ class _CitiesListScreenState extends State<CitiesListScreen> {
                       Navigator.pushReplacementNamed(
                           context,
                           FilterWidget.routeName,
-                          arguments:{user.Name}
+                          arguments:{user.name}
                       );
 
 

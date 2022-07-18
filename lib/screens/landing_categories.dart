@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:keybrad/providers/category_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Utils/app_theme.dart';
@@ -31,28 +30,21 @@ class _LandingCategoriesState extends State<LandingCategories> {
     super.initState();
 
     Future.delayed(Duration.zero,() {
-
-
       final args = ModalRoute.of(context)!.settings.arguments as Category ;
-      print('url:');
-
      setState(() {
        title = args.category;
-
-
      });
-
-
 
     });
   }
+
   @override
   Widget build(BuildContext context) {
 
     final itemsData = Provider.of<Items>(context);
     final items = itemsData.items;
 
-    Widget trailingListTileWidget =
+/*    Widget trailingListTileWidget =
     Row(mainAxisAlignment: MainAxisAlignment.start,
       children: [
 
@@ -70,7 +62,7 @@ class _LandingCategoriesState extends State<LandingCategories> {
         ),
         const  Text('Trier',style: TextStyle(color: AppTheme.itemTitleColor))
         ],),
-        SizedBox(width: 25),
+        const  SizedBox(width: 25),
 
         Column(children: [InkWell(
           onTap: () {
@@ -116,15 +108,15 @@ class _LandingCategoriesState extends State<LandingCategories> {
       ),
     );
 
+ */
 
 
-    Widget widget =  Container(
+
+    Widget widget =  SizedBox(
       width: MediaQuery.of(context).size.width ,
       child: Card(
-
-        shape: RoundedRectangleBorder(
-
-          borderRadius: const BorderRadius.only(topLeft:Radius.circular(20) ,topRight: Radius.circular(20)),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(topLeft:Radius.circular(20) ,topRight: Radius.circular(20)),
         ),
         color: AppTheme.greyBackgroundColor,
         elevation: 5,
@@ -133,7 +125,7 @@ class _LandingCategoriesState extends State<LandingCategories> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 BackWidget(height: 40,width: 40,),
+                 const BackWidget(height: 40,width: 40,),
 
 
               Container(
@@ -157,7 +149,7 @@ class _LandingCategoriesState extends State<LandingCategories> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: MediaQuery.of(context).size.width * 0.5,
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
@@ -170,7 +162,7 @@ class _LandingCategoriesState extends State<LandingCategories> {
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: MediaQuery.of(context).size.width * 0.5,
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),

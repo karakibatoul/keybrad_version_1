@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:keybrad/models/cities_data_model.dart';
 import 'dart:convert';
-import 'package:flutter/services.dart' as rootBundle;
-import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' as root_bundle;
 import 'package:keybrad/screens/cities_list_screen.dart';
 import 'package:keybrad/widgets/items_widget/fliter_widget.dart';
 
@@ -22,13 +20,13 @@ class _CitiesListScreenUnusedState extends State<CitiesListScreenUnused> {
   String searchString='';
   String query = '';
 
-  final selectedCountry=new ValueNotifier('') ;
+  final selectedCountry= ValueNotifier('') ;
 
 
 
   // Fetch content from the json file
   Future<void> readJson() async {
-    final String response = await rootBundle.rootBundle.loadString('assets/jsonFiles/Cities.json');
+    final String response = await root_bundle.rootBundle.loadString('assets/jsonFiles/Cities.json');
   //  final String response = await rootBundle.AssetBundleloadString('assets/jsonFiles/Cities.json');
     final data = await json.decode(response);
     setState(() {
@@ -65,8 +63,7 @@ class _CitiesListScreenUnusedState extends State<CitiesListScreenUnused> {
     void searchBook(String query) {
 
       final List books = _items.where((city) {
-        print("city");
-        print(city["Name"].toLowerCase());
+
         final titleLower = city["Name"].toLowerCase();
         // final authorLower = book.author.toLowerCase();
         final searchLower = query.toLowerCase();
@@ -74,15 +71,11 @@ class _CitiesListScreenUnusedState extends State<CitiesListScreenUnused> {
         return titleLower.contains(searchLower) ;
 
       }).toList();
-      print("hello");
-      print(books);
 
       setState(() {
         this.query = query;
         _items = books;
       });
-      print("items");
-      print(_items);
     }
     Widget buildSearch() => SearchWidget(
       text: query,
@@ -117,7 +110,7 @@ class _CitiesListScreenUnusedState extends State<CitiesListScreenUnused> {
             child: const Text('Load Data'),
             onPressed: readJson,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: TextField(
@@ -129,13 +122,13 @@ class _CitiesListScreenUnusedState extends State<CitiesListScreenUnused> {
                   searchString = value.toLowerCase();
                 });
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Search',
                 suffixIcon: Icon(Icons.search),
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           buildSearch(),
 
 
@@ -151,7 +144,6 @@ class _CitiesListScreenUnusedState extends State<CitiesListScreenUnused> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: (){
-                      print(_items[index]["Name"]);
                       //_goToPage2();
 
                       selectedCountry.value = _items[index]["Name"];

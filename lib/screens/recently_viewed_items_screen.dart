@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:keybrad/widgets/recently_viewed_widgets/recently_viewed_grid.dart';
 import 'package:keybrad/widgets/recently_viewed_widgets/recently_viewed_grid_final.dart';
 
 class RecentlyViewedItemsScreen extends StatelessWidget {

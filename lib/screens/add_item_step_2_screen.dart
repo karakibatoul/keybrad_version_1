@@ -7,7 +7,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Utils/app_theme.dart';
 import '../widgets/address_details_widget.dart';
 import '../widgets/location_widget.dart';
-import '../widgets/profile_textField_widget.dart';
+import '../widgets/profile_text_field_widget.dart';
 
 
 class AddItemStep2Screen extends StatelessWidget {
@@ -33,7 +33,7 @@ class AddItemStep2Screen extends StatelessWidget {
                   Container(
                     padding:const  EdgeInsets.only(bottom: 10),
                     width: MediaQuery.of(context).size.width/5,
-                      child: BackWidget(height: 35, width:35 )),
+                      child: const BackWidget(height: 35, width:35 )),
                   SizedBox(
                     width: MediaQuery.of(context).size.width*1/2+50,
                     child: Column(children: const [

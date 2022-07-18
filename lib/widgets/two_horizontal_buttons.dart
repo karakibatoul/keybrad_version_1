@@ -3,7 +3,6 @@ import 'package:keybrad/widgets/bottom_button.dart';
 import 'package:keybrad/widgets/bouncing_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../Utils/app_theme.dart';
 
 
 class TwoHorizontalButtons extends StatelessWidget {
@@ -26,7 +25,7 @@ class TwoHorizontalButtons extends StatelessWidget {
   final double rightButtonWidth;
   final double leftButtonWidth;
 
-  TwoHorizontalButtons({
+  const TwoHorizontalButtons({Key? key,
     required this.rightButtonBackground,
     required this.leftButtonBackground,
     required this.rightButtonLabel,
@@ -43,7 +42,7 @@ class TwoHorizontalButtons extends StatelessWidget {
     required this.leftButtonWidth,
     required this.rightButtonHeight,
     required this.rightButtonWidth
-});
+}) : super(key: key);
 
 
   @override

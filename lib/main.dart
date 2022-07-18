@@ -1,7 +1,6 @@
 // @dart=2.9
 
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,8 +8,6 @@ import 'package:keybrad/providers/categories.dart';
 import 'package:keybrad/providers/category_provider.dart';
 import 'package:keybrad/providers/city_provider.dart';
 import 'package:keybrad/providers/imageFiles.dart';
-import 'package:keybrad/providers/image_file.dart';
-import 'package:keybrad/providers/item_image.dart';
 import 'package:keybrad/providers/item_images.dart';
 import 'package:keybrad/providers/item_images_prime.dart';
 import 'package:keybrad/screens/about_us_screen.dart';
@@ -41,12 +38,10 @@ import 'package:keybrad/screens/phising_screen.dart';
 import 'package:keybrad/screens/recently_viewed_items_screen.dart';
 import 'package:keybrad/screens/search_results_screen.dart';
 import 'package:keybrad/screens/search_screen.dart';
-import 'package:keybrad/screens/show_picture_final%20_screen.dart';
 import 'package:keybrad/screens/sign_up_screen.dart';
 import 'package:keybrad/screens/splash_screen.dart';
 import 'package:keybrad/screens/tabs_screen.dart';
 import 'package:keybrad/screens/cities_list_screen.dart';
-import 'package:keybrad/screens/take_picture_screen.dart';
 import 'package:keybrad/screens/try_screen.dart';
 import 'package:keybrad/screens/user_details_screen.dart';
 import 'package:keybrad/widgets/add_item_widgets/choose_library_camera_dialog.dart';
@@ -94,9 +89,9 @@ Future<void> main() async {
 
 
 class MyApp extends StatelessWidget {
-   MyApp({Key key, this.firstCamera}) : super(key: key);
-   final selectedCountry=new ValueNotifier('') ;
-   final firstCamera;
+   MyApp({Key key,}) : super(key: key);
+   final selectedCountry= ValueNotifier('') ;
+
 
 
   // This widget is the root of your application.
@@ -157,10 +152,12 @@ class MyApp extends StatelessWidget {
 
           title: 'Flutter Demo',
           theme: ThemeData(
-            backgroundColor: AppTheme.greyBackgroundColor,
             accentColor: AppTheme.textOrange,
+            backgroundColor: AppTheme.greyBackgroundColor,
             primaryColor: AppTheme.greyBackgroundColor,
               scaffoldBackgroundColor: AppTheme.greyBackgroundColor,
+            colorScheme: ColorScheme.fromSwatch()
+                .copyWith(secondary: AppTheme.textOrange),
 
           ),
 
@@ -168,7 +165,7 @@ class MyApp extends StatelessWidget {
           ResponsiveSizer(
     builder: (context, orientation, screenType) {
             return
-            SplashScreen();
+            const SplashScreen();
     }),
           // const MyHomePage(title: 'Flutter Demo Home Page'),
           routes: {
@@ -178,7 +175,6 @@ class MyApp extends StatelessWidget {
             EditItemScreen.routeName: (ctx) => const EditItemScreen(),
             MyItemsScreen.routeName: (ctx) => const MyItemsScreen(),
             CommonItemScreen.routeName: (ctx) =>  const CommonItemScreen(index: 0),
-           // TakePictureScreen.routeName: (ctx) => TakePictureScreen(camera: firstCamera),
             AboutUsScreen.routeName: (ctx) =>const  AboutUsScreen(),
             ItemDetails.routeName: (ctx) =>const  ItemDetails(indexPage: 0,),
             AddItemScreen.routeName: (ctx) =>const  AddItemScreen(),
@@ -196,9 +192,9 @@ class MyApp extends StatelessWidget {
             MyItemsEmpty1.routeName: (ctx) =>const  MyItemsEmpty1(),
             MyItemsEmpty2.routeName: (ctx) => const MyItemsEmpty2(),
             MyItemsEmpty3.routeName: (ctx) =>const MyItemsEmpty3(showAppbar: true,),
-            TryScreen.routeName: (ctx) => TryScreen(),
+            TryScreen.routeName: (ctx) => const TryScreen(),
             CitySelectionListview.routeName: (ctx) =>const  CitySelectionListview(),
-            FilterWidget.routeName: (ctx) => FilterWidget(),
+            FilterWidget.routeName: (ctx) => const FilterWidget(),
             CitiesListScreenUnused.routeName: (ctx) => const CitiesListScreenUnused(),
             SignUpScreen.routeName: (ctx) =>const  SignUpScreen(),
             CategoriesScreen.routeName: (ctx) => const CategoriesScreen(),
@@ -206,7 +202,7 @@ class MyApp extends StatelessWidget {
             ItemWidget.routeName: (ctx) => const ItemWidget(index: 0,),
             CitiesListScreen.routeName:(ctx)=>const CitiesListScreen(),
             LandingAllEmptyScreen.routeName:(ctx)=>const LandingAllEmptyScreen(),
-            FilterImagePage.routeName:(ctx)=> FilterImagePage(),
+            FilterImagePage.routeName:(ctx)=>  FilterImagePage(),
             ShowPicturePage.routeName:(ctx)=> ShowPicturePage(),
             FavoriteEmptyScreen.routeName:(ctx)=>const FavoriteEmptyScreen(),
             ChooseLibraryCameraDialog.routeName:(ctx)=>const ChooseLibraryCameraDialog(),
@@ -239,9 +235,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const HalfBackgroundWidget(),
-            SignUpModel(),
+          children: const [
+            HalfBackgroundWidget(),
+             SignUpModel(),
           ],
         ),
       ),

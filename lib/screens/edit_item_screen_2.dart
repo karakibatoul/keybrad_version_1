@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:keybrad/screens/item_edit_screen.dart';
 import 'package:keybrad/widgets/address_details_widget.dart';
 import 'package:keybrad/widgets/location_widget.dart';
-import 'package:keybrad/widgets/profile_textField_widget.dart';
+import 'package:keybrad/widgets/profile_text_field_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../Utils/app_theme.dart';
-import '../widgets/filter_trier_round_widget.dart';
 import '../widgets/selection_listview_widgets/city_selection_listview.dart';
 
 class EditItemScreen2 extends StatefulWidget {
@@ -27,7 +25,7 @@ class _EditItemScreen2State extends State<EditItemScreen2> {
 
 
     Widget radioButtonRow = Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -151,8 +149,6 @@ class _EditItemScreen2State extends State<EditItemScreen2> {
                 child: LocationWidget(
                     controller: locationController,
                     onTap:(){
-                      print('hello');
-
                         Navigator.pushReplacementNamed(
                         context,
                         CitySelectionListview.routeName,

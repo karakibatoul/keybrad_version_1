@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:keybrad/providers/item_image.dart';
 import 'package:keybrad/providers/item_image_prime.dart';
 
 
 class ItemImagesPrime with ChangeNotifier{
 
-  List<ItemImagePrime> _images = [];
+  final List<ItemImagePrime> _images = [];
 
 
   List<ItemImagePrime> get images {
@@ -23,7 +22,6 @@ class ItemImagesPrime with ChangeNotifier{
         imagePath: itemImage.imagePath,isGallary: itemImage.isGallary,image: itemImage.image,filter: itemImage.filter);
 
     _images.add(newImage);
-    print('images:$_images');
     //_items.insert(0, newProduct);//to add it the beginning of the list
     notifyListeners();
   }

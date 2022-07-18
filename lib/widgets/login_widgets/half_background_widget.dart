@@ -10,7 +10,7 @@ class HalfBackgroundWidget extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: (MediaQuery.of(context).size.height) / 4,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
             fit: BoxFit.fill, image: AssetImage(backgroundImage)),
       ),

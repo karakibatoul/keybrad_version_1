@@ -40,11 +40,11 @@ class _ImageFilterScreenWithoutFiltersState extends State<ImageFilterScreenWitho
         title: Text(widget.title),
         actions: [
           IconButton(
-            icon: Icon(Icons.add_a_photo),
+            icon: const Icon(Icons.add_a_photo),
             onPressed: pickImage,
           ),
           IconButton(
-            icon: Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh),
             onPressed: () {
               setState(() {
                 filter = presetFiltersList[3];
@@ -58,7 +58,7 @@ class _ImageFilterScreenWithoutFiltersState extends State<ImageFilterScreenWitho
           buildImage(),
           const SizedBox(height: 12),
          Container(
-           margin: EdgeInsets.all(10),
+           margin: const EdgeInsets.all(10),
              child:  Row(
            mainAxisAlignment: MainAxisAlignment.start,
            children:  [
@@ -172,9 +172,9 @@ class _ImageFilterScreenWithoutFiltersState extends State<ImageFilterScreenWitho
           height: height,
           fit: BoxFit.fitHeight),
       errorBuilder: () => Container(height: height),
-      loadingBuilder: () => Container(
+      loadingBuilder: () =>const  SizedBox(
         height: height,
-        child: Center(child: CircularProgressIndicator()),
+        child:  Center(child: CircularProgressIndicator()),
       ),
     );
   }

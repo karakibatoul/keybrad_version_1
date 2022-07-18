@@ -13,7 +13,6 @@ import 'my_items_empty_2.dart';
 import 'my_items_empty_3.dart';
 import 'dart:math';
 
-import 'my_items_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({Key? key}) : super(key: key);
@@ -62,7 +61,7 @@ class _TabsScreenState extends State<TabsScreen> with TickerProviderStateMixin {
     // TODO: implement initState
     super.initState();
     _selectMyItemPage();
-    print('random:$_selectedMyItemPageIndex');
+
   }
 
 
@@ -135,7 +134,7 @@ class _TabsScreenState extends State<TabsScreen> with TickerProviderStateMixin {
           );
         }));
 
-    BottomNavigationBar bottomNavigationBar = BottomNavigationBar(
+    /*BottomNavigationBar bottomNavigationBar = BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       onTap: _selectPage,
       unselectedItemColor: Colors.black,
@@ -183,6 +182,8 @@ class _TabsScreenState extends State<TabsScreen> with TickerProviderStateMixin {
       ],
     );
 
+     */
+
     CurvedNavigationBar curvedNavigationBar = CurvedNavigationBar(
      // type: BottomNavigationBarType.fixed,
       onTap: _selectPage,
@@ -209,7 +210,7 @@ class _TabsScreenState extends State<TabsScreen> with TickerProviderStateMixin {
 
         InkWell(
             onTap: () {
-              print('selected:$_selectedPageIndex');
+
             },
             //wrap  it with cliprect to add a border radius
             child: Image.asset('assets/icons/my items.png',
@@ -239,7 +240,7 @@ class _TabsScreenState extends State<TabsScreen> with TickerProviderStateMixin {
 
         extendBody: true,
         appBar: appbar,
-        drawer: MainDrawer(),
+        drawer: const MainDrawer(),
         body: _pages[_selectedPageIndex]['page'],
         //  body: _pages[_selectedPageIndex]['page'],
         bottomNavigationBar: Builder(

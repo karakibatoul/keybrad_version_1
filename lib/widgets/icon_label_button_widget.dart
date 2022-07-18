@@ -16,43 +16,40 @@ class IconLabelButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          TextButton(
-            onPressed: onPressed,
-            child: Container(
-                width: width,
-                height: height,
-                decoration:  BoxDecoration(
-                    color:  backgroundColor,
-                    borderRadius: const BorderRadius.all(
-                        Radius.circular(25.0))),
-                child:
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:  [
-                    Image.asset(icon,height: iconHeight,width: iconWidth,),
-                    SizedBox(width: gap,),
-                    Container(
-                      alignment: Alignment.center,
-                      //padding: EdgeInsets.only(right: 10),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        TextButton(
+          onPressed: onPressed,
+          child: Container(
+              width: width,
+              height: height,
+              decoration:  BoxDecoration(
+                  color:  backgroundColor,
+                  borderRadius: const BorderRadius.all(
+                      Radius.circular(25.0))),
+              child:
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:  [
+                  Image.asset(icon,height: iconHeight,width: iconWidth,),
+                  SizedBox(width: gap,),
+                  Container(
+                    alignment: Alignment.center,
+                    //padding: EdgeInsets.only(right: 10),
 
 
-                      child: Text(label,
-                          style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white)),
-                    ),
+                    child: Text(label,
+                        style: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white)),
+                  ),
 
-                  ],)
-            ),
+                ],)
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -1,23 +1,19 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
+
 import 'package:flutter/material.dart';
 import 'package:keybrad/Utils/app_theme.dart';
-import 'package:keybrad/providers/categories.dart';
 import 'package:keybrad/screens/landing_categories.dart';
-import 'package:keybrad/screens/login_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../models/category.dart';
 import '../bouncing_widget.dart';
-import '/providers/category_provider.dart';
-import 'package:provider/provider.dart';
 
 class CategoryItemWidget extends StatefulWidget {
   //const CategoryItemWidget({Key? key}) : super(key: key);
   final Category category;
-  CategoryItemWidget({
+  const CategoryItemWidget({Key? key,
 
     required this.category,
 
-  }) ;
+  }) : super(key: key) ;
 
 
 
@@ -33,7 +29,7 @@ class _CategoryItemWidgetState extends State<CategoryItemWidget> with TickerProv
   double _textHeight  = 5.h;
   double _categoryFontSize = 10.sp;
   double _subCategoryFontSize  = 6.sp;
-  double _mainContainerHeight = 200;
+  final double _mainContainerHeight = 200;
 
 
 

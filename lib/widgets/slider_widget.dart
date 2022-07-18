@@ -13,7 +13,7 @@ class SliderWidget extends StatelessWidget {
   final double maxRange;
   final Function(RangeValues)? onChanged;
 
-  SliderWidget({
+  const SliderWidget({Key? key,
     required this.activeColor,
     required this.inactiveColor,
     required this.selectedRange,
@@ -22,7 +22,7 @@ class SliderWidget extends StatelessWidget {
     required this.minRange,
     required this.maxRange,
     required this.onChanged
-});
+}) : super(key: key);
 
 
   @override

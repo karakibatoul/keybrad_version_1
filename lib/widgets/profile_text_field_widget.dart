@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'package:flutter/material.dart';
 import '../Utils/app_theme.dart';
 
 class ProfileTextFieldWidget extends StatelessWidget {
@@ -14,15 +13,15 @@ class ProfileTextFieldWidget extends StatelessWidget {
   final double? hintFontSize;
 
 
-  ProfileTextFieldWidget(
-      {
+  const ProfileTextFieldWidget(
+      {Key? key,
         required this.controller,
         required this.hintText,
         required this.hintColor,
         required this.margin,
         required this.textFieldHeight,
         required this.hintFontSize
-      });
+      }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

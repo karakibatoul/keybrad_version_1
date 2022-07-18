@@ -11,7 +11,7 @@ class LocationWidget extends StatelessWidget {
   final Function()? suffixOnTap;
   final double fontsize;
 
-  LocationWidget({required this.controller,required this.onTap,required this.suffixOnTap,required this.fontsize});
+   const LocationWidget({Key? key, required this.controller,required this.onTap,required this.suffixOnTap,required this.fontsize}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class LocationWidget extends StatelessWidget {
           focusColor: Colors.grey,
           hintText: 'Localisation:',
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.grey,
             ),
             borderRadius: BorderRadius.circular(10.0),
@@ -46,15 +46,11 @@ class LocationWidget extends StatelessWidget {
 
           suffixIcon: InkWell(
             onTap:suffixOnTap,
-            child:  Container(
-              //color: AppTheme.backgroundOrange,
-              child: Image.asset(
-                'assets/icons/locationButtonIcon.png',
-
-                fit: BoxFit.fill,
-                height: IconTheme.of(context).size,
-                width: IconTheme.of(context).size,
-              ),
+            child:  Image.asset(
+              'assets/icons/locationButtonIcon.png',
+              fit: BoxFit.fill,
+              height: IconTheme.of(context).size,
+              width: IconTheme.of(context).size,
             ),
 
           ),
@@ -63,14 +59,14 @@ class LocationWidget extends StatelessWidget {
             fontSize: fontsize,
              ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: AppTheme.greyBackgroundColor,
             ),
             borderRadius: BorderRadius.circular(10.0),
           ),
           filled: true,
           fillColor: AppTheme.greyTextFieldColor,
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
         ),
       ),
     );

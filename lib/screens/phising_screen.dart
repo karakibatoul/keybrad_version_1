@@ -79,11 +79,11 @@ class PhishingScreen extends StatelessWidget {
                       ),
                     ),
 
-                  Flexible(
+                  const Flexible(
                     flex: 1,
                     child: Padding(
-                      padding:const  EdgeInsets.only(right: 20,left: 20),
-                      child:PhisingTextWidget(text:'- Évitez les paiements à distance'
+                      padding:  EdgeInsets.only(right: 20,left: 20),
+                      child:PhishingTextWidget(text:'- Évitez les paiements à distance'
                           '\n(virements bancaires,mobile money...).'),
                     ),
                   ),
@@ -94,7 +94,7 @@ class PhishingScreen extends StatelessWidget {
                     flex: 1,
                     child: Padding(
                       padding: padding,
-                      child:PhisingTextWidget(text:'- Évitez les paiements avant la rècèption et'
+                      child:const PhishingTextWidget(text:'- Évitez les paiements avant la rècèption et'
                           'la vèrification de l\'article.'),
 
 
@@ -108,7 +108,7 @@ class PhishingScreen extends StatelessWidget {
                     child: Container(
                       margin:const  EdgeInsets.only(top: 10),
                       padding: padding,
-                      child:PhisingTextWidget(text:'- Préférez les rencontres dans les lieux '
+                      child:const PhishingTextWidget(text:'- Préférez les rencontres dans les lieux '
                           'publics et pendant la journée.'),
 
 
@@ -121,7 +121,7 @@ class PhishingScreen extends StatelessWidget {
                     flex: 1,
                     child: Padding(
                       padding: padding,
-                      child:PhisingTextWidget(text:'- Informez un proche de l\' heure et du lieu '
+                      child:const  PhishingTextWidget(text:'- Informez un proche de l\' heure et du lieu '
                           'de votre redez-vous.'),
 
 

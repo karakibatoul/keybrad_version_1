@@ -1,17 +1,15 @@
 
 import 'package:flutter/material.dart';
-import 'package:keybrad/screens/add_item_screen.dart';
 import 'package:keybrad/screens/edit_item_screen.dart';
-
 import '../Utils/app_theme.dart';
 import 'edit_item_screen_2.dart';
-import 'login_screen.dart';
+
 
 class ItemEditScreen extends StatelessWidget {
   //const ItemEditScreen({Key? key}) : super(key: key);
   static const routeName = '/item_edit_screen';
   int pageIndex;
-  ItemEditScreen({required this.pageIndex});
+   ItemEditScreen({Key? key, required this.pageIndex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +33,7 @@ class ItemEditScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Container(
-                margin: EdgeInsets.only(left: 20),
+                margin: const EdgeInsets.only(left: 20),
                 // borderRadius: BorderRadius.circular(20.0),
                 child: Image.asset('assets/icons/back btn.png',fit: BoxFit.fitWidth,
                   height: 10,
@@ -49,7 +47,7 @@ class ItemEditScreen extends StatelessWidget {
       Navigator.pop(context);
       },
         child: Container(
-          margin: EdgeInsets.only(right: 10),
+          margin:const  EdgeInsets.only(right: 10),
           // borderRadius: BorderRadius.circular(20.0),
           child: Column(
             children: [
@@ -57,7 +55,7 @@ class ItemEditScreen extends StatelessWidget {
                 fit: BoxFit.fitHeight,
                 height: 35,
               ),
-              Text('Enregistrer',style: TextStyle(color: AppTheme.greyTextColor),)
+              const Text('Enregistrer',style: TextStyle(color: AppTheme.greyTextColor),)
             ],
           ),
         ),

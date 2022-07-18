@@ -99,10 +99,9 @@ class UserDetailsScreen extends StatelessWidget {
                       child:   InkWell(
                         onTap: (){
                           Navigator.of(context).pop();
-                          print('hello');
                         },
                           child:
-                          IgnorePointer(child: BackWidget(height: 40,width: 40,)))),
+                          const IgnorePointer(child: BackWidget(height: 40,width: 40,)))),
                   const Spacer(),
 
                   Column(
@@ -119,7 +118,6 @@ class UserDetailsScreen extends StatelessWidget {
                             color: AppTheme.backButtonBackgroundColor),
                         child: Bouncing(
                           onPress: (){
-                            print('jjjjjjj');
                             Timer(const Duration(milliseconds: 200), () {
                               Navigator.of(context, rootNavigator: true).pop();
                             });

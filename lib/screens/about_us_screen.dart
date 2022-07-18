@@ -193,7 +193,7 @@ class AboutUsScreen extends StatelessWidget {
                // margin: EdgeInsets.symmetric(vertical: 2.h),
 
                 margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 15),
-                child: BackWidget(height: 40, width: 40)),
+                child: const BackWidget(height: 40, width: 40)),
           ),
             Flexible(
               flex: 1,

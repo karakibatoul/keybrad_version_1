@@ -4,6 +4,8 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 
 class RadioGroup extends StatefulWidget {
+  const RadioGroup({Key? key}) : super(key: key);
+
   @override
   RadioGroupWidget createState() => RadioGroupWidget();
 }

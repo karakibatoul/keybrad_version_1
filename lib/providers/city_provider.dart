@@ -1,11 +1,8 @@
-import 'dart:convert';
+
 
 
 import 'package:flutter/foundation.dart';
-
-import 'package:flutter/services.dart' as rootBundle;
-
-import '../Utils/city_utils.dart';
+import 'package:flutter/services.dart' as root_bundle;
 import '../models/cities.dart';
 class CityProvider with ChangeNotifier {
   CityProvider() {
@@ -20,9 +17,8 @@ class CityProvider with ChangeNotifier {
   List<City> get countries => _countries;
 
   Future loadCountries() async {
-    final String response = await rootBundle.rootBundle.loadString('assets/jsonFiles/Cities.json');
-    Cities c = CitiesFromJson(response);
-    print('cities:');
+    final String response = await root_bundle.rootBundle.loadString('assets/jsonFiles/Cities.json');
+    Cities c = citiesFromJson(response);
     List<City> a = c.data;
 
     return a;

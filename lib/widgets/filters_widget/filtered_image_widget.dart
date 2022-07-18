@@ -27,10 +27,8 @@ class FilteredImageWidget extends StatelessWidget {
     final cachedImageBytes = FilterUtils.getCachedFilter(filter);
 
     if (cachedImageBytes == null) {
-      print('empty image');
       return buildFilterFuture(filter, image);
     } else {
-      print('image bytes:$cachedImageBytes');
       return buildFilter(cachedImageBytes);
     }
   }

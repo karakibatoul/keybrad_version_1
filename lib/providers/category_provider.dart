@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart' as rootBundle;
+import 'package:flutter/services.dart' as root_bundle;
 import '../models/category.dart';
 
 class Categoryy with ChangeNotifier {
@@ -8,8 +8,8 @@ class Categoryy with ChangeNotifier {
   final String description;
   final String imageUrl;
 
-  Categoryy(@required this.id, @required this.name, @required this.description,
-      @required this.imageUrl);
+  Categoryy(this.id, this.name, this.description,
+      this.imageUrl);
 }
 
 
@@ -27,9 +27,8 @@ class CategoryProvider with ChangeNotifier {
   List<Category> get categories => _categories;
 
   Future loadCategories() async {
-    final String response = await rootBundle.rootBundle.loadString('assets/jsonFiles/Categories.json');
-    Categories c = CategoriesFromJson(response);
-    print('cities:');
+    final String response = await root_bundle.rootBundle.loadString('assets/jsonFiles/Categories.json');
+    Categories c = categoriesFromJson(response);
     List<Category> a = c.data;
 
     return a;

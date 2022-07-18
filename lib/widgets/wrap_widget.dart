@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:keybrad/Utils/app_theme.dart';
 import 'package:keybrad/widgets/login_widgets/half_background_widget.dart';
-import 'package:keybrad/widgets/login_widgets/log_in_model.dart';
 import 'package:keybrad/widgets/login_widgets/sign_up_model.dart';
 
 class WrapWidget extends StatelessWidget {
@@ -10,10 +8,7 @@ class WrapWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-    Container(
-      //height: 500,
-
-     // height: double.infinity,
+    SizedBox(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
 
@@ -98,7 +93,7 @@ return  Stack(
             print("hello1");
             print(MediaQuery.of(context).size.height);
           },)*/
-          SignUpModel()
+          const SignUpModel()
       ),
     ),
   ],

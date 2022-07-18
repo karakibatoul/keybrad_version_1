@@ -9,11 +9,11 @@ class AddressDetailsWidget extends StatelessWidget {
   final double hintFontSize;
   final String hintText;
   final int? maxLines;
-  AddressDetailsWidget({
+  const AddressDetailsWidget({Key? key,
     required this.hintFontSize,
     required this.hintText,
     required this.maxLines
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:flutter/services.dart' as rootBundle;
+import 'package:flutter/services.dart' as root_bundle;
 
 
 
-Categories CategoriesFromJson(String str) =>
+Categories categoriesFromJson(String str) =>
     Categories.fromJson(json.decode(str));
 
 
@@ -57,7 +57,7 @@ class Category {
 class UserApi {
   static Future<List<Category>> getUserSuggestions(String query) async {
 
-    final String response = await rootBundle.rootBundle.loadString('assets/jsonFiles/Categories.json');
+    final String response = await root_bundle.rootBundle.loadString('assets/jsonFiles/Categories.json');
     Map<String, dynamic> map = json.decode(response);
     List<dynamic> data = map["Cities"];
 

@@ -1,7 +1,5 @@
-import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
-
 import 'image_file.dart';
 
 class ImageFiles with ChangeNotifier{
@@ -29,7 +27,6 @@ class ImageFiles with ChangeNotifier{
 
 
     _imageFiles.add(newImage);
-    print('images:$_imageFiles');
     //_items.insert(0, newProduct);//to add it the beginning of the list
     notifyListeners();
   }
@@ -48,7 +45,6 @@ class ImageFiles with ChangeNotifier{
 
   */
   void updateImageFile(int index,ImageFile imageFile){
-    print('in provider edit : $index');
       _imageFiles[index] = imageFile;
       notifyListeners();
 

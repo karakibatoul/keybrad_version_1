@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:keybrad/screens/item_details.dart';
 import 'package:keybrad/screens/phising_screen.dart';
-import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
@@ -23,7 +23,7 @@ class CommonItemScreen extends StatefulWidget {
 }
 
 class _CommonItemScreenState extends State<CommonItemScreen> {
-  int _selectedPageIndex = 0;
+  /*int _selectedPageIndex = 0;
 
   void _selectPage(int index) {
     setState(() {
@@ -31,21 +31,22 @@ class _CommonItemScreenState extends State<CommonItemScreen> {
     });
   }
 
+   */
+
   void customLaunch(command) async {
     if (await canLaunch(command)) {
       await launch(command);
     } else {
-      print(' could not launch $command');
     }
   }
 
   openwhatsapp(String tel) async{
     var whatsappURlAndroid = "whatsapp://send?phone="+tel+"&text=hello";
-    UrlLauncher.launch(whatsappURlAndroid);
+    url_launcher.launch(whatsappURlAndroid);
   }
   openSMS (String sms,String tel)async{
     var smsUrl = "sms:"+tel+"?body="+sms;
-    UrlLauncher.launch(smsUrl);
+    url_launcher.launch(smsUrl);
   }
 
 

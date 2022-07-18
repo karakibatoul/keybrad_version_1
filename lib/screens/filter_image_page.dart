@@ -4,23 +4,16 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:keybrad/Utils/app_theme.dart';
-import 'package:keybrad/providers/image_file.dart';
 import 'package:keybrad/screens/show_picture_page.dart';
-import 'package:provider/provider.dart';
-
-import '../Utils/filters.dart';
-import '../providers/imageFiles.dart';
-
-
-
+import 'package:keybrad/utils/filters.dart';
 
 
 class FilterImagePage extends StatefulWidget {
   static const routeName = '/filter_image_page';
-  File imageFile;
-  bool  iEdit;
-  int index;
-  FilterImagePage({Key key, @required this.imageFile,@required this.iEdit,@required this.index}) : super(key: key);
+  final File imageFile;
+  final bool  iEdit;
+  final int index;
+  const FilterImagePage({Key key, @required this.imageFile,@required this.iEdit,@required this.index}) : super(key: key);
   @override
   _FilterImagePageState createState() => _FilterImagePageState();
 }
@@ -29,25 +22,24 @@ class _FilterImagePageState extends State<FilterImagePage> {
 
   // VARIABLES AND CONSTANTS
   double _screenHeight = 0.0;
-  double _screenWidth = 0.0;
   File _image ;
 
   final picker = ImagePicker();
   ColorFilter _selectedFilter;
   List<ColorFilter> filterList = [
-    const ColorFilter.matrix(ORIGINAL_MATRIX),
-    const ColorFilter.matrix(GREYSCALE_MATRIX),
-    const  ColorFilter.matrix(VINTAGEE_MATRIX),
-    const  ColorFilter.matrix(VINTAGE_MATRIX),
-    const ColorFilter.matrix(SWEET_MATRIX),
-    const  ColorFilter.matrix(CONTRAST_MATRIX),
-    const  ColorFilter.matrix(SEPIA_MATRIX),
-    const  ColorFilter.matrix(SEPIA_PRIME_MATRIX),
-    const  ColorFilter.matrix(YELLOW_MATRIX),
-    const  ColorFilter.matrix(MAGENTA_MATRIX),
-    const  ColorFilter.matrix(CYAN_MATRIX),
-    const  ColorFilter.matrix(DARKIN_MATRIX),
-    const  ColorFilter.matrix(LIGHTEN_MATRIX),
+    const ColorFilter.matrix(originalMatrix),
+    const ColorFilter.matrix(greyScaleMatrix),
+    const  ColorFilter.matrix(vintage2Matrix),
+    const  ColorFilter.matrix(vintageMatrix),
+    const ColorFilter.matrix(sweetMatrix),
+    const  ColorFilter.matrix(contrastMatrix),
+    const  ColorFilter.matrix(sepiaMatrix),
+    const  ColorFilter.matrix(sepiaPrimeMatrix),
+    const  ColorFilter.matrix(yellowMatrix),
+    const  ColorFilter.matrix(magentaMatrix),
+    const  ColorFilter.matrix(cyanMatrix),
+    const  ColorFilter.matrix(darkenMatrix),
+    const  ColorFilter.matrix(lightenMatrix),
   ];
 
   // LIFE CYCLE
@@ -55,7 +47,6 @@ class _FilterImagePageState extends State<FilterImagePage> {
   @override
   Widget build(BuildContext context) {
     _screenHeight = MediaQuery.of(context).size.height;
-    _screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: appBar(context),
       body: Column(
@@ -79,7 +70,7 @@ class _FilterImagePageState extends State<FilterImagePage> {
       if (pickedFile != null) {
         _image = File(pickedFile.path);
       } else {
-        print('No image selected.');
+
       }
     });
   }
@@ -107,7 +98,7 @@ class _FilterImagePageState extends State<FilterImagePage> {
 
                 */
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                    ShowPicturePage(imageFile: widget.imageFile, selectedFilter: _selectedFilter,isEdit: widget.iEdit, index: widget.index,)));
+                     ShowPicturePage(imageFile: widget.imageFile, selectedFilter: _selectedFilter,isEdit: widget.iEdit, index: widget.index,)));
 
               },
               child: const Icon(
@@ -134,14 +125,12 @@ class _FilterImagePageState extends State<FilterImagePage> {
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.all(5),
        // color: Theme.of(context).primaryColorLight,
-        child:  widget.imageFile == null ? Center(
-          child: Text('empty'),
+        child:  widget.imageFile == null ?const  Center(
+          child:  Text('empty'),
         ) : Container(
-          child: Container(
-            child: _selectedFilter == null ? Image.file(File(widget.imageFile.path)) : ColorFiltered(
-              colorFilter: _selectedFilter,
-              child: Image.file(File(widget.imageFile.path),
-              ),
+          child: _selectedFilter == null ? Image.file(File(widget.imageFile.path)) : ColorFiltered(
+            colorFilter: _selectedFilter,
+            child: Image.file(File(widget.imageFile.path),
             ),
           ),
         )
@@ -192,7 +181,6 @@ class _FilterImagePageState extends State<FilterImagePage> {
     return InkWell(
       onTap: () {
         setState(() {
-          print("filter change");
           _selectedFilter = filter;
         });
       },

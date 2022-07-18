@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../Utils/app_theme.dart';
-import '../widgets/general_appbar_widget.dart';
+
 
 class FavoriteEmptyScreen extends StatelessWidget {
   const FavoriteEmptyScreen({Key? key}) : super(key: key);
@@ -79,7 +78,7 @@ class FavoriteEmptyScreen extends StatelessWidget {
 
              Expanded(
                  flex:1,child: avatarImage),
-            SizedBox(height: kToolbarHeight,)
+            const SizedBox(height: kToolbarHeight,)
 
           ],),
 

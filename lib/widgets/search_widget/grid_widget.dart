@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../Utils/app_theme.dart';
 
 class GridWidget extends StatelessWidget {
   final String image;

@@ -1,14 +1,13 @@
 
 
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '/Utils/app_theme.dart';
 
-class privacyPolicyLinkAndTermsOfService extends StatelessWidget {
-  const privacyPolicyLinkAndTermsOfService({Key? key}) : super(key: key);
+class PrivacyPolicyLinkAndTermsOfService extends StatelessWidget {
+  const PrivacyPolicyLinkAndTermsOfService({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

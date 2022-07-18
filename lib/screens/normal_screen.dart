@@ -42,7 +42,7 @@ class _NormalPageState extends State<NormalPage> with SingleTickerProviderStateM
 
   static Future<File> cropCustomImage(File imageFile) async =>
       await ImageCropper().cropImage(
-        aspectRatio: CropAspectRatio(ratioX: 16, ratioY: 9),
+        aspectRatio: const CropAspectRatio(ratioX: 16, ratioY: 9),
         sourcePath: imageFile.path,
         androidUiSettings: androidUiSettings(),
         iosUiSettings: iosUiSettings(),
@@ -68,13 +68,13 @@ class _NormalPageState extends State<NormalPage> with SingleTickerProviderStateM
       appBar: AppBar(
         backgroundColor: AppTheme.greyBackgroundColor,
           foregroundColor: AppTheme.blackTitleColor,
-          title: Text('Uploader',style: TextStyle(color: AppTheme.blackTitleColor),),
+          title: const Text('Uploader',style: TextStyle(color: AppTheme.blackTitleColor),),
           actions: [
             Row(
               children: [
                 Text(
                   isGallery ? 'Galerie' : 'Appareil photo',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Switch(
                   value: isGallery,

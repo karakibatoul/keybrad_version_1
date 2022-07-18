@@ -17,7 +17,7 @@ class _CheckboxRowState extends State<CheckboxRow> {
   Widget build(BuildContext context) {
     return Container(
       // alignment: Alignment.topCenter,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,

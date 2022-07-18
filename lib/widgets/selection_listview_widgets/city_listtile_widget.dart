@@ -12,13 +12,13 @@ class CityListTileWidget extends StatefulWidget {
   final bool isSelected;
   final ValueChanged<City> onSelectedCountry;
 
-    CityListTileWidget({
+    const CityListTileWidget({Key? key,
 
     required this.country,
     required this.isNative,
     required this.isSelected,
     required this.onSelectedCountry,
-  }) ;
+  }) : super(key: key) ;
 
   @override
   State<CityListTileWidget> createState() => _CityListTileWidgetState();
@@ -27,24 +27,24 @@ class CityListTileWidget extends StatefulWidget {
 class _CityListTileWidgetState extends State<CityListTileWidget> {
   @override
   Widget build(BuildContext context) {
-    final selectedColor = AppTheme.textOrange;
+    const selectedColor = AppTheme.textOrange;
     final style = widget.isSelected
-        ? TextStyle(
+        ? const TextStyle(
       fontSize: 18,
       color: selectedColor,
       fontWeight: FontWeight.bold,
     )
-        : TextStyle(fontSize: 18);
+        : const TextStyle(fontSize: 18);
 
     return ListTile(
       onTap: () => widget.onSelectedCountry(widget.country),
 
       title: Text(
-         widget.country.Name,
+         widget.country.name,
         style: style,
       ),
       trailing:
-      widget.isSelected ? Icon(Icons.check, color: selectedColor, size: 26) : null,
+      widget.isSelected ?const  Icon(Icons.check, color: selectedColor, size: 26) : null,
     );
   }
 }

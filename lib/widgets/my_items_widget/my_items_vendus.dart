@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:keybrad/screens/item_details.dart';
-import 'package:keybrad/widgets/my_items_widget/my_item_grid.dart';
 import 'package:keybrad/widgets/my_items_widget/my_item_grid_vendus.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../../Utils/app_theme.dart';
-import '../back_widget.dart';
-import '../bouncing_widget.dart';
 import '../filter_trier_round_widget.dart';
 
 
@@ -24,12 +19,9 @@ class MyItemsVendus extends StatelessWidget {
         margin:  EdgeInsets.symmetric(horizontal: 1.h),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
+          children: const <Widget>[
             Spacer(),
-            Container(
-              // margin: EdgeInsets.all(50),
-                child: const FilterTrierRoundWidget()
-            ),
+            FilterTrierRoundWidget(),
           ],
         ),
       ),
@@ -37,7 +29,7 @@ class MyItemsVendus extends StatelessWidget {
 
     return Scaffold(
       body:  SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height-4*kToolbarHeight,
           //   margin: EdgeInsets.only(top: 50),
           child: Column(
@@ -61,7 +53,7 @@ class MyItemsVendus extends StatelessWidget {
                           childAspectRatio: 2/4.2,
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 15,
-                          padding: EdgeInsets.only(right: 20,left: 20),
+                          padding: const EdgeInsets.only(right: 20,left: 20),
                           shrinkWrap: true,
 
 

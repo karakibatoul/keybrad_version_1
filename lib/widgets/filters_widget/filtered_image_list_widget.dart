@@ -34,7 +34,7 @@ class FilteredImageListWidget extends StatelessWidget {
           return InkWell(
             onTap: () => onChangedFilter(filter),
             child: Container(
-              padding: EdgeInsets.all(4),
+              padding: const EdgeInsets.all(4),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -46,12 +46,12 @@ class FilteredImageListWidget extends StatelessWidget {
                       backgroundImage: MemoryImage(Uint8List.fromList(imageBytes)),
                       backgroundColor: Colors.white,
                     ),
-                    errorBuilder: () => CircleAvatar(
+                    errorBuilder: () => const CircleAvatar(
                       radius: 50,
                       child: Icon(Icons.report, size: 32),
                       backgroundColor: Colors.white,
                     ),
-                    loadingBuilder: () => CircleAvatar(
+                    loadingBuilder: () => const CircleAvatar(
                       radius: 50,
                       child: Center(child: CircularProgressIndicator()),
                       backgroundColor: Colors.white,
@@ -60,7 +60,7 @@ class FilteredImageListWidget extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     filter.name,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),

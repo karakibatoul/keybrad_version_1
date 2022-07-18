@@ -55,7 +55,7 @@ class FilterTrierRoundWidget extends StatelessWidget {
                 var curve = Curves.easeInOut.transform(a1.value);
                 return Transform.scale(
                   scale: curve,
-                  child: FilterWidget(),
+                  child: const FilterWidget(),
                 );
               },
               transitionDuration: const Duration(milliseconds: 300),
