@@ -49,6 +49,8 @@ class _CheckboxRowState extends State<CheckboxRow> {
                   ],
                 ),
                 leading: Checkbox(
+                    checkColor: Colors.white,
+                    activeColor:AppTheme.textOrange ,
                     value: _pickupchecked,
                     onChanged: (bool? value) {
                       setState(() {
@@ -84,6 +86,8 @@ class _CheckboxRowState extends State<CheckboxRow> {
                   ],
                 ),
                 leading: Checkbox(
+                    checkColor: Colors.white,
+                    activeColor:AppTheme.textOrange ,
                     value: _deliverychecked,
                     onChanged: (bool? value) {
                       setState(() {

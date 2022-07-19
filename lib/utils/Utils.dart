@@ -9,8 +9,6 @@ class Utils {
     final source = isGallery ? ImageSource.gallery : ImageSource.camera;
     final pickedFile = await ImagePicker().getImage(source: source);
 
-    if (pickedFile == null) return null;
-
     if (cropImage == null) {
       return File(pickedFile.path);
     } else {
@@ -27,7 +25,7 @@ class Utils {
   }) async {
 
 
-    if (imageFile == null) return null;
+    //if (imageFile == null) return null;
 
     if (cropImage == null) {
       {
@@ -49,7 +47,7 @@ class Utils {
     final source = isGallery ? ImageSource.gallery : ImageSource.camera;
     final pickedFile = await ImagePicker().getImage(source: source);
 
-    if (pickedFile == null) return null;
+   // if (pickedFile == null) return null;
 
     if (cropImage == null) {
       return File(pickedFile.path);

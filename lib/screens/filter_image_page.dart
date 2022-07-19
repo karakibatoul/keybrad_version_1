@@ -98,7 +98,7 @@ class _FilterImagePageState extends State<FilterImagePage> {
 
                 */
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                     ShowPicturePage(imageFile: widget.imageFile, selectedFilter: _selectedFilter,isEdit: widget.iEdit, index: widget.index,)));
+                     ShowPicturePage(imageFile: widget.imageFile, selectedFilter: _selectedFilter,isEdit: widget.iEdit, index: widget.index, isGallary: null,)));
 
               },
               child: const Icon(
@@ -169,7 +169,7 @@ class _FilterImagePageState extends State<FilterImagePage> {
       child: OutlineButton(
         borderSide: BorderSide(width: 2, color: Theme.of(context).primaryColor),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ShowPicturePage(imageFile: widget.imageFile, selectedFilter: _selectedFilter,)));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ShowPicturePage(imageFile: widget.imageFile, selectedFilter: _selectedFilter,index: null,isEdit: null,isGallary: null,)));
           //  Navigator.of(context).push(MaterialPageRoute(builder: (context) => CropScreen(imageFile: _image, filter: _selectedFilter,)));
         },
         child: Text('crop_button.toUpperCase()', style: Theme.of(context).textTheme.bodyText1,),

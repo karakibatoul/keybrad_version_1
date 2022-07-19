@@ -5,7 +5,7 @@ import 'package:keybrad/Utils/app_theme.dart';
 import 'package:keybrad/widgets/items_favorite_widget/items_grid_favorites.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../bouncing_widget.dart';
-import '../items_widget/fliter_widget.dart';
+import '../items_widget/filter_widget.dart';
 import '../items_widget/trier_widget.dart';
 
 

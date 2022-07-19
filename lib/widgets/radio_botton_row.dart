@@ -10,12 +10,10 @@ class RadioButtonRow extends StatefulWidget {
   State<RadioButtonRow> createState() => _RadioButtonRowState();
 }
 
-enum menuitem { item1, item2, item3, item4 }
-
 class _RadioButtonRowState extends State<RadioButtonRow> {
+  int id = 1;
   @override
   Widget build(BuildContext context) {
-    menuitem? _mitem = menuitem.item1;
     return  Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
@@ -48,13 +46,14 @@ class _RadioButtonRowState extends State<RadioButtonRow> {
                   ),
                 ],
               ),
-              leading: Radio<menuitem>(
-                activeColor: AppTheme.radioButtonColor,
-                value: menuitem.item1,
-                groupValue: _mitem,
-                onChanged: (menuitem? value) {
+              leading:
+              Radio(
+                activeColor: AppTheme.textOrange,
+                value: 1,
+                groupValue: id,
+                onChanged: (val) {
                   setState(() {
-                    _mitem = value;
+                    id = 1;
                   });
                 },
               ),
@@ -86,13 +85,14 @@ class _RadioButtonRowState extends State<RadioButtonRow> {
                   ),
                 ],
               ),
-              leading: Radio<menuitem>(
-                value: menuitem.item2,
-                activeColor: AppTheme.radioButtonColor,
-                groupValue: _mitem,
-                onChanged: (menuitem? value) {
+              leading:
+              Radio(
+                activeColor: AppTheme.textOrange,
+                value: 2,
+                groupValue: id,
+                onChanged: (val) {
                   setState(() {
-                    _mitem = value;
+                    id = 2;
                   });
                 },
               ),

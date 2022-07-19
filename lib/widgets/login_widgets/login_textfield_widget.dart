@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '/Utils/app_theme.dart';
 
 class LoginTextFieldWidget extends StatelessWidget {
-  var textController =  TextEditingController();
+   var textController =  TextEditingController();
 
   LoginTextFieldWidget(this.textController, {Key? key}) : super(key: key);
 

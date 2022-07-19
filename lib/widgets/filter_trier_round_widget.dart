@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:keybrad/widgets/bouncing_widget.dart';
-import 'package:keybrad/widgets/items_widget/fliter_widget.dart';
+import 'package:keybrad/widgets/items_widget/filter_widget.dart';
 import 'package:keybrad/widgets/items_widget/trier_widget.dart';
 
 import '../Utils/app_theme.dart';

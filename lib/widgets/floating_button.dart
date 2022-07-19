@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:keybrad/utils/app_theme.dart';
 
 class FloatingButtonWidget extends StatelessWidget {
   final VoidCallback onClicked;
@@ -18,14 +19,10 @@ class FloatingButtonWidget extends StatelessWidget {
             .of(context)
             .primaryColor,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 2, color: Theme
-              .of(context)
-              .accentColor),
+          side: const BorderSide(width: 2, color: AppTheme.textOrange),
           borderRadius: BorderRadius.circular(16),
         ),
-        child: Icon(Icons.add, color: Theme
-            .of(context)
-            .accentColor),
+        child:const  Icon(Icons.add, color: AppTheme.textOrange),
         onPressed: onClicked,
       );
 }

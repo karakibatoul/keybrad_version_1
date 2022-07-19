@@ -31,7 +31,7 @@ class _NormalPageState extends State<NormalPage> with SingleTickerProviderStateM
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) =>
-          ShowPicturePage(imageFile: file,isGallary: isGallery,isEdit: false, )
+          ShowPicturePage(imageFile: file,isGallary: isGallery,isEdit: false, index: null, )
       ),
     );
 

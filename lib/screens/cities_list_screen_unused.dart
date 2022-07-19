@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' as root_bundle;
 import 'package:keybrad/screens/cities_list_screen.dart';
-import 'package:keybrad/widgets/items_widget/fliter_widget.dart';
+import 'package:keybrad/widgets/items_widget/filter_widget.dart';
 
 import '../widgets/search_widget.dart';
 

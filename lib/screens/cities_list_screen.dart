@@ -5,7 +5,7 @@ import 'package:keybrad/Utils/app_theme.dart';
 import 'package:flutter/services.dart' as root_bundle;
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import '../models/cities.dart';
-import '../widgets/items_widget/fliter_widget.dart';
+import '../widgets/items_widget/filter_widget.dart';
 
 
 

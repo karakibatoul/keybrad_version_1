@@ -31,8 +31,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 Size(MediaQuery.of(context).size.width, kToolbarHeight),
             child:  const TabBar(
 
-              //indicatorColor: Colors.transparent,
-
+              indicatorColor:AppTheme.textOrange ,
               labelColor: AppTheme.blackTitleColor,
               unselectedLabelColor: AppTheme.greyTextColor,
               labelPadding: EdgeInsets.all(2),

@@ -3,7 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:keybrad/providers/imageFiles.dart';
+import 'package:keybrad/providers/image_files.dart';
 import 'package:keybrad/screens/add_item_step_2_screen.dart';
 import 'package:keybrad/screens/normal_screen.dart';
 import 'package:keybrad/screens/show_picture_page.dart';
@@ -57,8 +57,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
 
      positionedOnTap(int index)  {
       if(imageFiles.images.length>=index+1) {
-        if (imageFiles.images.isNotEmpty &&
-            imageFiles.images[index] != null) {
+        if (imageFiles.images.isNotEmpty) {
           Provider.of<ImageFiles>(
               context, listen: false)
               .deleteFile(index);
@@ -71,7 +70,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
       return PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>  ShowPicturePage(
           imageFile: imageFiles.images[index].imageFile ,selectedFilter: imageFiles.images[index].selectedFilter,isEdit: true,
-          index:index,),
+          index:index, isGallary: null,),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(0.0, 1.0);
           const end = Offset.zero;
@@ -406,13 +405,6 @@ class _AddItemScreenState extends State<AddItemScreen> {
                   ),
                 ),
               ),
-              ///////////////////////////////////////////////////tryyyyyyyyyyyyyyyyy
-
-
-
-
-              ///////////////////////////////////////////////////////////////////////////////try
-
             ],
           ),
         ),

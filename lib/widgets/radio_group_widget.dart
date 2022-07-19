@@ -40,7 +40,7 @@ class RadioGroupWidget extends State {
 
                 Expanded(child: Row(children: [
                   Radio(
-
+                    activeColor: AppTheme.textOrange,
                     value: 1,
                     groupValue: id,
                     onChanged: (val) {
@@ -64,6 +64,7 @@ class RadioGroupWidget extends State {
                 Expanded(child: Row(
                   children: [
                     Radio(
+                      activeColor: AppTheme.textOrange,
                       value: 2,
                       groupValue: id,
                       onChanged: (val) {

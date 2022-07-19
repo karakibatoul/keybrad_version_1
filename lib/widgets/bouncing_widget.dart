@@ -5,8 +5,7 @@ class Bouncing extends StatefulWidget {
   final VoidCallback onPress;
 
   const Bouncing({required this.child, Key? key, required this.onPress})
-      : assert(child != null),
-        super(key: key);
+      : super(key: key);
 
   @override
   _BouncingState createState() => _BouncingState();
@@ -42,15 +41,11 @@ class _BouncingState extends State<Bouncing>
     _scale = 1 - _controller.value;
     return Listener(
       onPointerDown: (PointerDownEvent event) {
-        if (widget.onPress != null) {
-          _controller.forward();
-        }
+        _controller.forward();
       },
       onPointerUp: (PointerUpEvent event) {
-        if (widget.onPress != null) {
-          _controller.reverse();
-          widget.onPress();
-        }
+        _controller.reverse();
+        widget.onPress();
       },
       child: Transform.scale(
         scale: _scale,

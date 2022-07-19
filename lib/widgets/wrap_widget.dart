@@ -14,7 +14,7 @@ class WrapWidget extends StatelessWidget {
 
       child: LayoutBuilder(builder: (context, constraint){
 return  Stack(
-  overflow: Overflow.visible,
+  clipBehavior: Clip.none,
   children: [
 
 

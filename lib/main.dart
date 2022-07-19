@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:keybrad/providers/categories.dart';
 import 'package:keybrad/providers/category_provider.dart';
 import 'package:keybrad/providers/city_provider.dart';
-import 'package:keybrad/providers/imageFiles.dart';
+import 'package:keybrad/providers/image_files.dart';
 import 'package:keybrad/providers/item_images.dart';
 import 'package:keybrad/providers/item_images_prime.dart';
 import 'package:keybrad/screens/about_us_screen.dart';
@@ -46,7 +46,7 @@ import 'package:keybrad/screens/try_screen.dart';
 import 'package:keybrad/screens/user_details_screen.dart';
 import 'package:keybrad/widgets/add_item_widgets/choose_library_camera_dialog.dart';
 import 'package:keybrad/widgets/image_effects_widget.dart';
-import 'package:keybrad/widgets/items_widget/fliter_widget.dart';
+import 'package:keybrad/widgets/items_widget/filter_widget.dart';
 import 'package:keybrad/widgets/items_widget/items_widget.dart';
 import 'package:keybrad/widgets/selection_listview_widgets/city_selection_listview.dart';
 import '/Utils/app_theme.dart';
@@ -152,12 +152,13 @@ class MyApp extends StatelessWidget {
 
           title: 'Flutter Demo',
           theme: ThemeData(
-            accentColor: AppTheme.textOrange,
+           // accentColor: AppTheme.textOrange,
             backgroundColor: AppTheme.greyBackgroundColor,
             primaryColor: AppTheme.greyBackgroundColor,
               scaffoldBackgroundColor: AppTheme.greyBackgroundColor,
             colorScheme: ColorScheme.fromSwatch()
-                .copyWith(secondary: AppTheme.textOrange),
+                .copyWith(primary: AppTheme.textOrange),
+
 
           ),
 
@@ -202,8 +203,8 @@ class MyApp extends StatelessWidget {
             ItemWidget.routeName: (ctx) => const ItemWidget(index: 0,),
             CitiesListScreen.routeName:(ctx)=>const CitiesListScreen(),
             LandingAllEmptyScreen.routeName:(ctx)=>const LandingAllEmptyScreen(),
-            FilterImagePage.routeName:(ctx)=>  FilterImagePage(),
-            ShowPicturePage.routeName:(ctx)=> ShowPicturePage(),
+            FilterImagePage.routeName:(ctx)=>   const FilterImagePage(imageFile: null,iEdit: null,index: null),
+            ShowPicturePage.routeName:(ctx)=> ShowPicturePage(index: null,imageFile: null,isGallary: null,isEdit: null,selectedFilter: null),
             FavoriteEmptyScreen.routeName:(ctx)=>const FavoriteEmptyScreen(),
             ChooseLibraryCameraDialog.routeName:(ctx)=>const ChooseLibraryCameraDialog(),
             NormalPage.routeName:(ctx)=>const NormalPage(),

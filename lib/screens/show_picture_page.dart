@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Utils/Utils.dart';
 import '../Utils/app_theme.dart';
-import '../providers/imageFiles.dart';
+import '../providers/image_files.dart';
 import '../providers/image_file.dart';
 import 'filter_image_page.dart';
 
@@ -38,7 +38,7 @@ class _ShowPicturePageState extends State<ShowPicturePage> {
   Future onClickedButton(BuildContext context) async {
     final file = await Utils.pickMediaInCustom(
       imageFile: widget.imageFile,
-      cropImage: cropPredefinedImage as Future<File> Function(File),
+      cropImage: cropPredefinedImage,
     );
 
     if (file == null) return;

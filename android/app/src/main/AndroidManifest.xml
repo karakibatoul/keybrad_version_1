@@ -9,7 +9,6 @@
    <application
         tools:replace="android:label"
         android:label="keybrad"
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
        tools:ignore="MissingClass">
         <activity
