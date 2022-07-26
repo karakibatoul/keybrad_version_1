@@ -11,6 +11,7 @@ class ProfileTextFieldWidget extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final double? textFieldHeight;
   final double? hintFontSize;
+  final TextInputType keyboardType;
 
 
   const ProfileTextFieldWidget(
@@ -20,7 +21,8 @@ class ProfileTextFieldWidget extends StatelessWidget {
         required this.hintColor,
         required this.margin,
         required this.textFieldHeight,
-        required this.hintFontSize
+        required this.hintFontSize,
+        required this.keyboardType
       }) : super(key: key);
 
   @override
@@ -29,10 +31,9 @@ class ProfileTextFieldWidget extends StatelessWidget {
       margin: margin,
       height: textFieldHeight,
       child: TextField(
-
+        keyboardType: keyboardType,
         cursorColor: Colors.grey,
         style:const TextStyle(color: Colors.grey),
-
         onTap: (){
         },
         controller:controller ,

@@ -132,6 +132,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
       margin: EdgeInsets.symmetric(horizontal: 1.5.h,vertical: 0.2.h),
       height: 6.h,
       child: TextField(
+        keyboardType: TextInputType.number,
         cursorColor: Colors.grey,
         style:const TextStyle(color: Colors.grey),
         onTap:(){} ,
@@ -209,6 +210,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
               Flexible(
                 flex: 2,
                 child: ProfileTextFieldWidget(
+                  keyboardType: TextInputType.text,
                   controller: telephoneController,
                   hintText: 'Titre:',
                   textFieldHeight: 6.h,
@@ -240,6 +242,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
               Flexible(
                 flex: 2,
                 child: ProfileTextFieldWidget(
+                  keyboardType: TextInputType.text,
                   controller: telephoneController,
                   hintText: 'Catégorie:',
                   textFieldHeight: 6.h,

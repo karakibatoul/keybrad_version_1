@@ -7,7 +7,6 @@ import 'package:keybrad/widgets/filter_trier_round_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Utils/app_theme.dart';
 import '../widgets/bouncing_widget.dart';
-import '../widgets/items_widget/items_grid.dart';
 
 
 class UserDetailsScreen extends StatelessWidget {
@@ -84,24 +83,29 @@ class UserDetailsScreen extends StatelessWidget {
 
     Widget widget =  SizedBox(
       width: MediaQuery.of(context).size.width ,
-      child: Card(
-          color: AppTheme.greyBackgroundColor,
-          elevation: 0,
-          child:
-          Stack(
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children:  [
+      child: Stack(
+        //crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Positioned(
 
+            child: Card(
+              color: AppTheme.greyBackgroundColor,
+              elevation: 0,
+              child: Row(
+                children:  [
                   Container(
                       margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 15),
-                      child:   InkWell(
-                        onTap: (){
-                          Navigator.of(context).pop();
-                        },
-                          child:
-                          const IgnorePointer(child: BackWidget(height: 40,width: 40,)))),
+                      child:   Material(
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.of(context).pop();
+                          },
+                            child:
+                            const IgnorePointer(
+                                child:
+                                BackWidget(height: 40,width: 40,)
+                            )),
+                      )),
                   const Spacer(),
 
                   Column(
@@ -139,18 +143,17 @@ class UserDetailsScreen extends StatelessWidget {
 
                 ],
               ),
-              Container(
-                height: MediaQuery.of(context).size.height*0.24,
-                //height: 20.h,
-                  margin: EdgeInsets.only(top: 2.h),
-                  child: headDrawer),
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height*0.24,
+            //height: 20.h,
+              margin: EdgeInsets.only(top: 2.h),
+              child: headDrawer),
 
 
 
-            ],)
-
-
-      ),
+        ],),
     );
 
 
@@ -183,13 +186,17 @@ Container(
     ),
   ),
 );
-    return Scaffold(body:  Stack(
+    return Scaffold(
+      body:
+     widget,
+
+      /*Stack(
       children: [
+
         Positioned(
       child: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: ListView(
-
           children:  [
             widget,
             const SizedBox(
@@ -231,6 +238,7 @@ Container(
         ),
       ),
 
-    ],),);
+    ],),*/
+    );
   }
 }

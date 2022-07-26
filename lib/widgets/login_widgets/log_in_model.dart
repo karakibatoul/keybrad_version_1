@@ -79,6 +79,7 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
           margin: commonMarginTextField,
           height: textFieldHeight,
           child: TextField(
+            keyboardType: TextInputType.phone,
             controller: textController,
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(

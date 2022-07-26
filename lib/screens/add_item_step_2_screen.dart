@@ -54,6 +54,7 @@ class AddItemStep2Screen extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: ProfileTextFieldWidget(
+                  keyboardType: TextInputType.phone,
                   controller: telephoneController,
                   hintText: 'Numéro de téléphone:',
                   textFieldHeight: 6.h,
@@ -66,6 +67,7 @@ class AddItemStep2Screen extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: ProfileTextFieldWidget(
+                  keyboardType: TextInputType.phone,
                   controller: telephoneController,
                   hintText: 'WhatsApp:',
                   textFieldHeight: 6.h,

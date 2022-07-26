@@ -56,10 +56,9 @@ class ContactUsScreen extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 1.5.h,vertical: 0.2.h),
       height: 7.h,
       child: TextField(
-
+        keyboardType: TextInputType.text,
         cursorColor: Colors.grey,
         style:const TextStyle(color: Colors.grey),
-
         onTap: (){
         },
         controller:objectController ,

@@ -60,7 +60,7 @@ class _RadioGroupWidgetWithImagesState extends State<RadioGroupWidgetWithImages>
                     ],
                   ),
                   leading:    Radio(
-
+                    activeColor: AppTheme.textOrange,
                     value: 1,
                     groupValue: id,
                     onChanged: (val) {
@@ -102,6 +102,7 @@ class _RadioGroupWidgetWithImagesState extends State<RadioGroupWidgetWithImages>
                     ],
                   ),
                   leading:   Radio(
+                    activeColor: AppTheme.textOrange,
                     value: 2,
                     groupValue: id,
                     onChanged: (val) {

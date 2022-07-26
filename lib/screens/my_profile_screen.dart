@@ -110,6 +110,7 @@ class MyProfileScreen extends StatelessWidget {
                 imageWidget,
                 SizedBox(height:6.h ,),
                 ProfileTextFieldWidget(
+                  keyboardType: TextInputType.phone,
                   controller: telephone,
                   hintText: 'Numéro de téléphone:',
                   textFieldHeight: 7.h,
@@ -119,6 +120,7 @@ class MyProfileScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 1.h,),
                 ProfileTextFieldWidget(
+                  keyboardType: TextInputType.phone,
                   controller: telephone,
                   hintText: 'WhatsApp:',
                   textFieldHeight: 7.h,

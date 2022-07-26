@@ -89,7 +89,7 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
      double textFieldHeight = 12.h;
     const commonMarginText = EdgeInsets.only(left: 20, right: 20,);
 
-    Widget textFieldWidget(TextEditingController textController){
+    Widget textFieldWidget(TextEditingController textController,TextInputType keyboardType){
       return Flexible(
         flex: 6,
         fit: FlexFit.loose,
@@ -97,6 +97,7 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
           margin: commonMarginTextField,
           height: textFieldHeight,
           child: TextField(
+            keyboardType: keyboardType,
             controller: textController,
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
@@ -352,13 +353,13 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
               ),*/
               labelTextWidget('Nom:', 15.sp),
               SizedBox(height:2.5.h ,),
-              textFieldWidget(textController),
+              textFieldWidget(textController,TextInputType.text),
               SizedBox(height:1.2.h ,),
 
               labelTextWidget('Numéro de téléphone:', 15.sp),
               SizedBox(height:2.5.h ,),
 
-              textFieldWidget(textController),
+              textFieldWidget(textController,TextInputType.phone),
               SizedBox(height:1.2.h ,),
               labelTextWidget('Mot de passe:', 15.sp),
               SizedBox(height:2.5.h ,),

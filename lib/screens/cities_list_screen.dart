@@ -21,7 +21,6 @@ class _CitiesListScreenState extends State<CitiesListScreen> {
   late List _items = [];
   Future<void> readJson() async {
     final String response = await root_bundle.rootBundle.loadString('assets/jsonFiles/Cities.json');
-    //  final String response = await rootBundle.AssetBundleloadString('assets/jsonFiles/Cities.json');
     final data = await json.decode(response);
     setState(() {
       _items = data["Cities"];

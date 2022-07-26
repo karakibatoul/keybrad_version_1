@@ -119,6 +119,7 @@ class _EditItemScreen2State extends State<EditItemScreen2> {
             Flexible(
               flex: 1,
               child: ProfileTextFieldWidget(
+                keyboardType: TextInputType.phone,
                   controller: telephoneController,
                   hintText: 'Numéro de téléphone:',
                   textFieldHeight: 6.h,
@@ -131,6 +132,7 @@ class _EditItemScreen2State extends State<EditItemScreen2> {
             Flexible(
               flex: 1,
               child: ProfileTextFieldWidget(
+                keyboardType: TextInputType.phone,
                 controller: telephoneController,
                 hintText: 'WhatsApp:',
                 textFieldHeight: 6.h,
