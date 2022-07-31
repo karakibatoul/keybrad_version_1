@@ -969,6 +969,7 @@ class _SearchScreenState extends State<SearchScreen> with TickerProviderStateMix
                   flex: 3,
                   fit: FlexFit.loose,
                   child: ProfileTextFieldWidget(
+                    validateText: 'Title can not be null',
                     keyboardType: TextInputType.text,
                     controller: articleController,
                     hintText: 'Titre de l\'article:',

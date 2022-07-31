@@ -119,6 +119,7 @@ class _EditItemScreen2State extends State<EditItemScreen2> {
             Flexible(
               flex: 1,
               child: ProfileTextFieldWidget(
+                validateText: 'Phone can not be null',
                 keyboardType: TextInputType.phone,
                   controller: telephoneController,
                   hintText: 'Numéro de téléphone:',
@@ -132,6 +133,7 @@ class _EditItemScreen2State extends State<EditItemScreen2> {
             Flexible(
               flex: 1,
               child: ProfileTextFieldWidget(
+                validateText: 'Whatsapp can not be null',
                 keyboardType: TextInputType.phone,
                 controller: telephoneController,
                 hintText: 'WhatsApp:',

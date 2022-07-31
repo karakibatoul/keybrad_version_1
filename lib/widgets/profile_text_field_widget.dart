@@ -12,9 +12,10 @@ class ProfileTextFieldWidget extends StatelessWidget {
   final double? textFieldHeight;
   final double? hintFontSize;
   final TextInputType keyboardType;
+  final String validateText;
 
 
-  const ProfileTextFieldWidget(
+   const ProfileTextFieldWidget(
       {Key? key,
         required this.controller,
         required this.hintText,
@@ -22,26 +23,33 @@ class ProfileTextFieldWidget extends StatelessWidget {
         required this.margin,
         required this.textFieldHeight,
         required this.hintFontSize,
-        required this.keyboardType
+        required this.keyboardType,
+        required this.validateText
       }) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
       height: textFieldHeight,
-      child: TextField(
+      child: TextFormField(
+          validator: (value){
+            if( value!.isEmpty){
+              return validateText;
+            }
+            if(value.isNotEmpty){
+              return null;
+            }
+            return null;
+        },
         keyboardType: keyboardType,
         cursorColor: Colors.grey,
         style:const TextStyle(color: Colors.grey),
         onTap: (){
         },
         controller:controller ,
-        onSubmitted: (_) {
-
-
-        },
-
         decoration: InputDecoration(
           focusColor: Colors.grey,
           hintText: hintText,

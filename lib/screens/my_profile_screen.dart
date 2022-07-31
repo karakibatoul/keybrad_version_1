@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:keybrad/screens/search_screen.dart';
 import 'package:keybrad/widgets/address_details_widget.dart';
 import 'package:keybrad/widgets/back_widget.dart';
 import 'package:keybrad/widgets/bouncing_widget.dart';
@@ -10,22 +11,55 @@ import 'package:keybrad/widgets/location_widget.dart';
 import 'package:keybrad/widgets/profile_text_field_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Utils/app_theme.dart';
+import '../widgets/selection_listview_widgets/city_selection_listview.dart';
+import 'my_profile_screen.dart';
+import 'my_profile_screen.dart';
 
 
-class MyProfileScreen extends StatelessWidget {
-  const MyProfileScreen({Key? key}) : super(key: key);
+class MyProfileScreen extends StatefulWidget {
+   MyProfileScreen({Key? key}) : super(key: key);
   static const routeName = '/my_profile_screen';
+
+  @override
+  State<MyProfileScreen> createState() => _MyProfileScreenState();
+}
+
+class _MyProfileScreenState extends State<MyProfileScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  final locationController = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    Future.delayed(Duration.zero,() {
+      String locationString = '';
+      var  args = ModalRoute.of(context)!.settings.arguments;
+      if(args==null){
+        setState(() {
+          locationController.text='';
+        });
+      }
+      else{
+        setState(() {
+          final  args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+          for(int i=0;i<args.nbrOfCities;i++){
+            locationString  =locationString + args.city[i].name +',' ;
+          }
+          locationString = locationString.toString().substring(0,locationString.length-1);
+
+          locationController.text = 'localization: $locationString';
+        });
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
 
-    final telephone = TextEditingController();
+    final _telephoneController = TextEditingController();
+    final _whatsappController = TextEditingController();
     final location = TextEditingController();
-
-
-
-
-
 
     Widget imageWidget =
     Container(
@@ -78,9 +112,14 @@ class MyProfileScreen extends StatelessWidget {
                     color: AppTheme.backButtonBackgroundColor),
                 child: Bouncing(
                     onPress: (){
-                      Timer(const Duration(milliseconds: 200), () {
-                        Navigator.of(context, rootNavigator: true).pop();
-                      });
+                      if(!_formKey.currentState!.validate()){
+                        return;
+                      }
+                      else {
+                        Timer(const Duration(milliseconds: 200), () {
+                          Navigator.of(context, rootNavigator: true).pop();
+                        });
+                      }
 
                        },
                   child: Image.asset('assets/icons/saveIcon.png',
@@ -103,44 +142,58 @@ class MyProfileScreen extends StatelessWidget {
     return Scaffold(
       body:
           SingleChildScrollView(
-            child: Column(
-              
-              children: [
-                topWidget,
-                imageWidget,
-                SizedBox(height:6.h ,),
-                ProfileTextFieldWidget(
-                  keyboardType: TextInputType.phone,
-                  controller: telephone,
-                  hintText: 'Numéro de téléphone:',
-                  textFieldHeight: 7.h,
-                  margin: EdgeInsets.symmetric(horizontal: 1.5.h,vertical: 0.2.h),
-                  hintColor: AppTheme.filterLabelColor,
-                  hintFontSize: 17.sp,
-                ),
-                SizedBox(height: 1.h,),
-                ProfileTextFieldWidget(
-                  keyboardType: TextInputType.phone,
-                  controller: telephone,
-                  hintText: 'WhatsApp:',
-                  textFieldHeight: 7.h,
-                  margin: EdgeInsets.symmetric(horizontal: 1.5.h,vertical: 0.2.h),
-                  hintColor: AppTheme.filterLabelColor,
-                  hintFontSize: 17.sp,
-                ),
-                SizedBox(height: 1.h,),
-                LocationWidget(controller: location, onTap: (){
-                  //Navigator.pushReplacementNamed(context, CitySelectionListview.routeName);
-                  }, suffixOnTap: (){
-                 // Navigator.pushNamed(context, CitiesListScreen.routeName);
-                },fontsize: 17.sp),
-                SizedBox(height: 1.h,),
-                 AddressDetailsWidget(
-                   maxLines: 8,
-                   hintText: 'Détails de l\'adresse:',
-                   hintFontSize: 17.sp,),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  topWidget,
+                  imageWidget,
+                  SizedBox(height:6.h ,),
+                  ProfileTextFieldWidget(
+                    validateText: 'Phone can not be null',
+                    keyboardType: TextInputType.phone,
+                    controller: _telephoneController,
+                    hintText: 'Numéro de téléphone:',
+                    textFieldHeight: 7.h,
+                    margin: EdgeInsets.symmetric(horizontal: 1.5.h,vertical: 0.2.h),
+                    hintColor: AppTheme.filterLabelColor,
+                    hintFontSize: 17.sp,
+                  ),
+                  SizedBox(height: 1.h,),
+                  ProfileTextFieldWidget(
+                    validateText: 'Whatsapp can not be null',
+                    keyboardType: TextInputType.phone,
+                    controller: _whatsappController,
+                    hintText: 'WhatsApp:',
+                    textFieldHeight: 7.h,
+                    margin: EdgeInsets.symmetric(horizontal: 1.5.h,vertical: 0.2.h),
+                    hintColor: AppTheme.filterLabelColor,
+                    hintFontSize: 17.sp,
+                  ),
+                  SizedBox(height: 1.h,),
+                  LocationWidget(
+                      controller: locationController,
+                      onTap:(){
+                        /* Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) =>
+                              const CitySelectionListview(returnPage:SearchScreen.routeName ,)),
+                            );
 
-              ],
+                            */
+                        Navigator.pushReplacementNamed(context, CitySelectionListview.routeName,arguments: MyProfileScreen.routeName);
+                      },
+                      suffixOnTap: (){  Navigator.pushNamed(context, CitySelectionListview.routeName);},
+                      fontsize: 17.sp),
+                  SizedBox(height: 1.h,),
+                   AddressDetailsWidget(
+                     maxLines: 8,
+                     hintText: 'Détails de l\'adresse:',
+                     hintFontSize: 17.sp,),
+
+
+                ],
+              ),
             ),
           ),
 

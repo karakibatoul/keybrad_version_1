@@ -105,6 +105,7 @@ class _EditItemScreenState extends State<EditItemScreen> {
               Flexible(
                 flex: 1,
                 child: ProfileTextFieldWidget(
+                  validateText: 'Title can not be null',
                   keyboardType: TextInputType.text,
                   controller: telephoneController,
                   hintText: 'Titre:',
@@ -141,6 +142,7 @@ class _EditItemScreenState extends State<EditItemScreen> {
                 flex: 1,
                 child: ProfileTextFieldWidget(
                   keyboardType: TextInputType.text,
+                  validateText: 'Category can not be null',
                   controller: telephoneController,
                   hintText: 'Catégorie:',
                   textFieldHeight: 6.h,

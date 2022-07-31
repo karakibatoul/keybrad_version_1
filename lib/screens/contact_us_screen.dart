@@ -17,12 +17,22 @@ class ContactUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var objectController = TextEditingController();
+    final _formKey = GlobalKey<FormState>();
 
     Widget messageWidget =
     Container(
       margin: EdgeInsets.symmetric(horizontal: 1.5.h,vertical: 0.2.h),
       //height: 7.h,
       child:TextFormField(
+        validator: (value){
+      if( value!.isEmpty){
+        return "message can not be null";
+      }
+      if(value.isNotEmpty){
+        return null;
+      }
+      return null;
+      },
         decoration: InputDecoration(
           focusColor: Colors.grey,
           hintText: 'Message:',
@@ -55,18 +65,22 @@ class ContactUsScreen extends StatelessWidget {
     Widget objectWidget = Container(
       margin: EdgeInsets.symmetric(horizontal: 1.5.h,vertical: 0.2.h),
       height: 7.h,
-      child: TextField(
+      child: TextFormField(
+        validator: (value){
+          if( value!.isEmpty){
+            return "Object can not be null";
+          }
+          if(value.isNotEmpty){
+            return null;
+          }
+          return null;
+        },
         keyboardType: TextInputType.text,
         cursorColor: Colors.grey,
         style:const TextStyle(color: Colors.grey),
         onTap: (){
         },
         controller:objectController ,
-        onSubmitted: (_) {
-
-
-        },
-
         decoration: InputDecoration(
           focusColor: Colors.grey,
           hintText: 'Objet:',
@@ -103,94 +117,101 @@ class ContactUsScreen extends StatelessWidget {
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0))),
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-               Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Flexible(
-                        flex: 1,
-                        fit: FlexFit.loose,
-                        child:  Padding(
-                            padding:  EdgeInsets.only(top: 15,bottom: 20,right: 0,left: 20),
-                            child: BackWidget(width: 35,height: 35,))
-                      ),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                 Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Flexible(
+                          flex: 1,
+                          fit: FlexFit.loose,
+                          child:  Padding(
+                              padding:  EdgeInsets.only(top: 15,bottom: 20,right: 0,left: 20),
+                              child: BackWidget(width: 35,height: 35,))
+                        ),
 
 
-                      Flexible(
-                        flex: 2,
-                        fit: FlexFit.loose,
-                        child: Center(
-                          child: Container(
-                            padding: const EdgeInsets.only(top: 15, bottom: 20,left: 40),
-                            child:  Text('Nous contacter',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: AppTheme.drawerTitleColor,
-                                    fontSize: 21.sp, fontWeight: FontWeight.w700)),
+                        Flexible(
+                          flex: 2,
+                          fit: FlexFit.loose,
+                          child: Center(
+                            child: Container(
+                              padding: const EdgeInsets.only(top: 15, bottom: 20,left: 40),
+                              child:  Text('Nous contacter',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: AppTheme.drawerTitleColor,
+                                      fontSize: 21.sp, fontWeight: FontWeight.w700)),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-              SizedBox(height: 1.5.h,),
+                      ],
+                    ),
+                SizedBox(height: 1.5.h,),
 
-              objectWidget,
-              SizedBox(height: 1.h,),
-              messageWidget,
-
+                objectWidget,
+                SizedBox(height: 1.h,),
+                messageWidget,
 
 
-              Padding(
-                padding: const EdgeInsets.only(
-                    right: 8.0, left: 8.0, bottom: 8.0, top: 20.0),
-                child:  Center(
-                    child: Bouncing(
-                      onPress: (){
-                        Timer(const Duration(milliseconds: 200), () {
-                          Navigator.of(context).pop();
-                        });
-                      },
-                      child: TextButton(
-                        onPressed: () {
-                          Timer(const Duration(milliseconds: 200), () {
-                            Navigator.of(context).pop();
-                          });
+
+                Padding(
+                  padding: const EdgeInsets.only(
+                      right: 8.0, left: 8.0, bottom: 8.0, top: 20.0),
+                  child:  Center(
+                      child: Bouncing(
+                        onPress: (){
+
                         },
-                        child: Container(
-                            width: 170,
-                            height: 45,
-                            decoration: const BoxDecoration(
-                                color: AppTheme.trierButtonBackgroundColor,
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(25.0))),
-                            child:
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children:  [  Container(
-                                    alignment: Alignment.center,
-                                    //padding: EdgeInsets.only(right: 10),
+                        child: TextButton(
+                          onPressed: () {
+                            if(!_formKey.currentState!.validate()){
+                              return;
+                            }
+                            else {
+                              Timer(const Duration(milliseconds: 200), () {
+                                Navigator.of(context).pop();
+                              });
+                            }
+
+                          },
+                          child: Container(
+                              width: 170,
+                              height: 45,
+                              decoration: const BoxDecoration(
+                                  color: AppTheme.trierButtonBackgroundColor,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(25.0))),
+                              child:
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children:  [  Container(
+                                      alignment: Alignment.center,
+                                      //padding: EdgeInsets.only(right: 10),
 
 
-                                  child: Text('Envoyer',
-                                      style: TextStyle(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w700,
-                                          color: Colors.white)),
-                                ),
+                                    child: Text('Envoyer',
+                                        style: TextStyle(
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.white)),
+                                  ),
 
 
-                                    Image.asset('assets/icons/rightArrow.png',height: 20,width: 20,)
-                                  ],)
-                          ),
+                                      Image.asset('assets/icons/rightArrow.png',height: 20,width: 20,)
+                                    ],)
+                            ),
+                        ),
                       ),
                     ),
                   ),
-                ),
 
-            ],
+              ],
+            ),
           ),
         ),
     ),

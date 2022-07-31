@@ -173,7 +173,7 @@ class _MainDrawerState extends State<MainDrawer> {
                   Timer(const Duration(milliseconds: 300), () {
                     Navigator.of(context).push(
                         PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) => const MyProfileScreen(),
+                          pageBuilder: (context, animation, secondaryAnimation) =>  MyProfileScreen(),
                           transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             const begin = Offset(0.0, 1.0);
                             const end = Offset.zero;

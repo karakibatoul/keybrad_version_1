@@ -54,6 +54,7 @@ class AddItemStep2Screen extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: ProfileTextFieldWidget(
+                  validateText: 'Phone can not be null',
                   keyboardType: TextInputType.phone,
                   controller: telephoneController,
                   hintText: 'Numéro de téléphone:',
@@ -67,6 +68,7 @@ class AddItemStep2Screen extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: ProfileTextFieldWidget(
+                  validateText: 'Whatsapp can not be null',
                   keyboardType: TextInputType.phone,
                   controller: telephoneController,
                   hintText: 'WhatsApp:',

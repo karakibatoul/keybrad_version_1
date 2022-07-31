@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:keybrad/screens/login_screen.dart';
 import 'package:keybrad/screens/sign_up_screen.dart';
 import '/Utils/app_theme.dart';
@@ -80,10 +81,19 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
   String text = "text";
 
   bool _isObscure = true;
+  bool _validateName = false;
+  bool _validatePassword = false;
+  bool _validatePhone = false;
+  bool _validateConfirmPassword = false;
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     //in the second stage every textField will have a controller
     TextEditingController textController = TextEditingController();
+    TextEditingController _nameController = TextEditingController();
+    TextEditingController _phoneController = TextEditingController();
+    TextEditingController _passwordController = TextEditingController();
+    TextEditingController _confirmPassWordController = TextEditingController();
     const commonMarginTextField =
     EdgeInsets.symmetric(vertical: 5, horizontal: 30);//if i change this there would be padding at start of page
      double textFieldHeight = 12.h;
@@ -96,10 +106,19 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
         child: Container(
           margin: commonMarginTextField,
           height: textFieldHeight,
-          child: TextField(
+          child: TextFormField(
+            validator: (value){
+              if(value!.isNotEmpty){
+                return null;
+              }
+              else if( value.isEmpty){
+                return "Name can not be null";
+              }
+            },
             keyboardType: keyboardType,
             controller: textController,
             decoration: InputDecoration(
+              errorText: _validateName ? 'Value Can\'t Be Empty' : null,
               focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: Colors.grey,
@@ -183,311 +202,352 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
         ),
         child: Center(
          // alignment: Alignment.topCenter,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-               SizedBox(
-                  height: 5.h,
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                 SizedBox(
+                    height: 5.h,
+                  ),
+
+            Flexible(
+              flex: 4,
+              child: Container(
+                alignment: Alignment.center,
+                height: 4.h,
+             // padding: EdgeInsets.only(top: 20),
+
+
+              //  margin: EdgeInsets.only(top: 20),
+                //margin: commonMarginText,
+              //  padding: EdgeInsets.symmetric(vertical: 2),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+
+                  children: [
+                    Flexible(
+                      flex: 1,
+                      fit: FlexFit.tight,
+                      child: Container(
+                      //  height: 2.h,
+                        alignment: Alignment.center,
+                        child: RichText(
+                          text: TextSpan(text: ' ', children: [
+                             TextSpan(
+                              text: 'Se connecter',
+                              style: TextStyle(
+                                  overflow: TextOverflow.visible,
+                                  color: AppTheme.greyTitleColor,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold),
+
+                              recognizer:  TapGestureRecognizer()..onTap = () => Navigator.of(context).pushNamed(LoginScreen.routeName),
+                            )
+                          ]),
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 1,
+                      fit: FlexFit.tight,
+                      child: Container(
+                        alignment: Alignment.center,
+                     //   height: 2.h,
+                        child: RichText(
+                          text:  TextSpan(text: ' ', children: [
+                             TextSpan(
+                              text: 'S\' inscrire',
+                              style: TextStyle(
+                                  overflow: TextOverflow.visible,
+                                  color: AppTheme.blackTitleColor,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold),
+
+                              recognizer:  TapGestureRecognizer()..onTap = () =>  Navigator.of(context)
+                                  .pushNamed(SignUpScreen.routeName),
+                            )
+                          ]),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-
-          Flexible(
-            flex: 3,
-            child: Container(
-              alignment: Alignment.center,
-              height: 4.h,
-           // padding: EdgeInsets.only(top: 20),
-
-              
-            //  margin: EdgeInsets.only(top: 20),
-              //margin: commonMarginText,
-            //  padding: EdgeInsets.symmetric(vertical: 2),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-
-                children: [
-                  Flexible(
-                    flex: 1,
-                    fit: FlexFit.tight,
-                    child: Container(
-                    //  height: 2.h,
-                      alignment: Alignment.center,
-                      child: RichText(
-                        text: TextSpan(text: ' ', children: [
-                           TextSpan(
-                            text: 'Se connecter',
-                            style: TextStyle(
-                                overflow: TextOverflow.visible,
-                                color: AppTheme.greyTitleColor,
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.bold),
-
-                            recognizer:  TapGestureRecognizer()..onTap = () => Navigator.of(context).pushNamed(LoginScreen.routeName),
-                          )
-                        ]),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    flex: 1,
-                    fit: FlexFit.tight,
-                    child: Container(
-                      alignment: Alignment.center,
-                   //   height: 2.h,
-                      child: RichText(
-                        text:  TextSpan(text: ' ', children: [
-                           TextSpan(
-                            text: 'S\' inscrire',
-                            style: TextStyle(
-                                overflow: TextOverflow.visible,
-                                color: AppTheme.blackTitleColor,
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.bold),
-
-                            recognizer:  TapGestureRecognizer()..onTap = () =>  Navigator.of(context)
-                                .pushNamed(SignUpScreen.routeName),
-                          )
-                        ]),
-                      ),
-                    ),
-                  ),
-                ],
               ),
             ),
-          ),
 
 
 
-                /* Flexible(
-                    flex: 4,
-                    child: Container(
-                      alignment: Alignment.center,
-                        height: 3.h,
-                     // margin: commonMarginText,
-                        padding: EdgeInsets.symmetric(vertical: 2.h),
+                  /* Flexible(
+                      flex: 4,
+                      child: Container(
+                        alignment: Alignment.center,
+                          height: 3.h,
+                       // margin: commonMarginText,
+                          padding: EdgeInsets.symmetric(vertical: 2.h),
 
 
-                        child: Row(
+                          child: Row(
 
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Flexible(
-                             flex: 1,
-                              fit: FlexFit.loose,
-                              child: Container(
-                                  height: 2.h,
-                               //  padding: const EdgeInsets.only(bottom: 15),
-                                  alignment: Alignment.center,
-                                  child: InkWell(
-                                      onTap: () {
-                                        print('hi guys');
-                                        Navigator.of(context).pushNamed(CategoriesScreen.routeName);
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Flexible(
+                               flex: 1,
+                                fit: FlexFit.loose,
+                                child: Container(
+                                    height: 2.h,
+                                 //  padding: const EdgeInsets.only(bottom: 15),
+                                    alignment: Alignment.center,
+                                    child: InkWell(
+                                        onTap: () {
+                                          print('hi guys');
+                                          Navigator.of(context).pushNamed(CategoriesScreen.routeName);
 
-                                      },
-                                      child:   Text(
-                                          'Se connecter',
-                                          style: TextStyle(
-                                            overflow: TextOverflow.visible,
-                                              color: AppTheme.greyTitleColor,
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ))),
-
-
-                            Flexible(
-                              flex: 1,
-                              fit: FlexFit.loose,
-                              child: Container(
-                                  height: 2.h,
-                               //   padding: const EdgeInsets.only(bottom: 5),
-                                  alignment: Alignment.center,
-                                  child: InkWell(
-                                      onTap: () {
-                                        Navigator.of(context)
-                                            .pushNamed(SignUpScreen.routeName);
-                                      },
-                                      child:  Text(
-                                          'S\' inscrire',
-                                          style: TextStyle(
+                                        },
+                                        child:   Text(
+                                            'Se connecter',
+                                            style: TextStyle(
                                               overflow: TextOverflow.visible,
-                                              color: AppTheme.blackTitleColor,
-                                              fontSize: 20.sp,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      ))),
+                                                color: AppTheme.greyTitleColor,
+                                                fontSize: 20.sp,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ))),
 
 
-                            //the two buttons
-                          ],
+                              Flexible(
+                                flex: 1,
+                                fit: FlexFit.loose,
+                                child: Container(
+                                    height: 2.h,
+                                 //   padding: const EdgeInsets.only(bottom: 5),
+                                    alignment: Alignment.center,
+                                    child: InkWell(
+                                        onTap: () {
+                                          Navigator.of(context)
+                                              .pushNamed(SignUpScreen.routeName);
+                                        },
+                                        child:  Text(
+                                            'S\' inscrire',
+                                            style: TextStyle(
+                                                overflow: TextOverflow.visible,
+                                                color: AppTheme.blackTitleColor,
+                                                fontSize: 20.sp,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ))),
+
+
+                              //the two buttons
+                            ],
+                          ),
                         ),
-                      ),
-                  ),*/
-             SizedBox(
-                height: 6.h,
-              ),
-
-
-
-
-
-            /*  Flexible(
-                flex: 1,
-                fit: FlexFit.loose,
-                child: Container(
-                  padding: const EdgeInsets.only(right: 10, left: 10, top: 10),
-                  margin: commonMarginText,
-                  child: const Text(
-                    'Nom:',
-                    style: TextStyle(
-                        color: AppTheme.greyTextColor,
-                        overflow: TextOverflow.visible,
-                        fontWeight: FontWeight.w700),
-                  ),
+                    ),*/
+               SizedBox(
+                  height: 6.h,
                 ),
-              ),*/
-              labelTextWidget('Nom:', 15.sp),
-              SizedBox(height:2.5.h ,),
-              textFieldWidget(textController,TextInputType.text),
-              SizedBox(height:1.2.h ,),
 
-              labelTextWidget('Numéro de téléphone:', 15.sp),
-              SizedBox(height:2.5.h ,),
 
-              textFieldWidget(textController,TextInputType.phone),
-              SizedBox(height:1.2.h ,),
-              labelTextWidget('Mot de passe:', 15.sp),
-              SizedBox(height:2.5.h ,),
 
-              Flexible(
-                flex: 6,
-                fit: FlexFit.loose,
-                child: Container(
-                  margin: commonMarginTextField,
-                  height: textFieldHeight,
-                  child: TextField(
-                    obscureText: _isObscure,
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        color: Colors.grey,
-                        onPressed: () {
-                          setState(() {
-                            _isObscure = !_isObscure;
-                          });
-                        },
-                        icon: Icon(!_isObscure
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Colors.grey,
+
+
+              /*  Flexible(
+                  flex: 1,
+                  fit: FlexFit.loose,
+                  child: Container(
+                    padding: const EdgeInsets.only(right: 10, left: 10, top: 10),
+                    margin: commonMarginText,
+                    child: const Text(
+                      'Nom:',
+                      style: TextStyle(
+                          color: AppTheme.greyTextColor,
+                          overflow: TextOverflow.visible,
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ),*/
+
+                labelTextWidget('Nom:', 15.sp),
+                SizedBox(height:2.5.h ,),
+                textFieldWidget(_nameController,TextInputType.text),
+                SizedBox(height:1.2.h ,),
+
+                labelTextWidget('Numéro de téléphone:', 15.sp),
+                SizedBox(height:2.5.h ,),
+
+                Flexible(
+                  flex: 9,
+                  child: Container(
+                    height: textFieldHeight,
+                    margin:commonMarginTextField,
+                    child: IntlPhoneField(
+                      controller: _phoneController,
+                      decoration: InputDecoration(
+                        errorText: _validatePhone ? 'Value Can\'t Be Empty' : null,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Colors.grey,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppTheme.greyTextFieldColor,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: AppTheme.greyTextFieldColor,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        borderRadius: BorderRadius.circular(10.0),
+                        filled: true,
+                        fillColor: AppTheme.greyTextFieldColor,
+                        border: const OutlineInputBorder(),
                       ),
-                      filled: true,
-                      fillColor: AppTheme.greyTextFieldColor,
-                      border: const OutlineInputBorder(),
+                      initialCountryCode: 'IN',
+                      onChanged: (phone) {
+                        print(phone.completeNumber);
+                      },
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height:1.2.h ,),
-              labelTextWidget('Confirmer le mot de passe: ', 15.sp),
-              SizedBox(height:2.5.h ,),
+                SizedBox(height:1.2.h ,),
+                labelTextWidget('Mot de passe:', 15.sp),
+                SizedBox(height:2.5.h ,),
 
+                Flexible(
+                  flex: 6,
+                  fit: FlexFit.loose,
+                  child: Container(
+                    margin: commonMarginTextField,
+                    height: textFieldHeight,
+                    child: TextFormField(
+                      validator: (value){
 
-
-
-              Flexible(
-                flex: 6,
-                fit: FlexFit.loose,
-                child: Container(
-                  margin: commonMarginTextField,
-                  height: textFieldHeight,
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        color: Colors.grey,
-                        onPressed: () {
-                          setState(() {
-                            _isObscure = !_isObscure;
-                          });
-                        },
-                        icon: Icon(!_isObscure
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                          if(value!.isNotEmpty){
+                            return null;
+                          }
+                          else if( value.isEmpty){
+                            return "Password can not be null";
+                          }
+                      },
+                      controller: _passwordController,
+                      obscureText: _isObscure,
+                      decoration: InputDecoration(
+                        errorText: _validatePassword ? 'Value Can\'t Be Empty' : null,
+                        suffixIcon: IconButton(
                           color: Colors.grey,
+                          onPressed: () {
+                            setState(() {
+                              _isObscure = !_isObscure;
+                            });
+                          },
+                          icon: Icon(!_isObscure
+                              ? Icons.visibility
+                              : Icons.visibility_off),
                         ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppTheme.greyTextFieldColor,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Colors.grey,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
-                        borderRadius: BorderRadius.circular(10.0),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: AppTheme.greyTextFieldColor,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        filled: true,
+                        fillColor: AppTheme.greyTextFieldColor,
+                        border: const OutlineInputBorder(),
                       ),
-                      filled: true,
-                      fillColor: AppTheme.greyTextFieldColor,
-                      border: const OutlineInputBorder(),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 2.5.h,
-              ),
-              Flexible(
-                flex: 10,
-                child: Center(
-                  child: InkWell(
-                    onTap: () {
-                      _controller.reset();
-                      Timer(const Duration(milliseconds: 100), () {
-                        Navigator.of(context).push(_createRoute());
-                      });
-                       /* setState(()
-                        {
-                          _animation = CurvedAnimation(
-                            parent: _controller,
-                            curve: Curves.bounceInOut,
-                          );
+                SizedBox(height:1.2.h ,),
+                labelTextWidget('Confirmer le mot de passe: ', 15.sp),
+                SizedBox(height:2.5.h ,),
+
+                Flexible(
+                  flex: 6,
+                  fit: FlexFit.loose,
+                  child: Container(
+                    margin: commonMarginTextField,
+                    height: textFieldHeight,
+                    child: TextFormField(
+                      validator: (value){
+
+                        if( value!.isEmpty){
+                          return "Confirm Password can not be null";
                         }
-                        );
+                        else if(_passwordController.text != _confirmPassWordController.text)
+                          {
+                            return "un confirmed password";
+                          }
+                        else if(value.isNotEmpty){
+                          return null;
+                        }
+                      },
 
-                        */
-                       // Navigator.of(context).push(_createRoute());
-                    },
-                    child:
-                    /*Container(
-                      width:_size ,
-                      height: _size,
-
-                      decoration: BoxDecoration(
-                        color: AppTheme.tickButtonColor,
-                        borderRadius: BorderRadius.circular(50)
+                      controller: _confirmPassWordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        errorText: _validateConfirmPassword ? 'Value Can\'t Be Empty' : null,
+                        suffixIcon: IconButton(
+                          color: Colors.grey,
+                          onPressed: () {
+                            setState(() {
+                              _isObscure = !_isObscure;
+                            });
+                          },
+                          icon: Icon(!_isObscure
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Colors.grey,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: AppTheme.greyTextFieldColor,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        filled: true,
+                        fillColor: AppTheme.greyTextFieldColor,
+                        border: const OutlineInputBorder(),
                       ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 2.5.h,
+                ),
+                Flexible(
+                  flex: 10,
+                  child: Center(
+                    child: InkWell(
+                      onTap: () {
+                        _controller.reset();
+                        if(!_formKey.currentState!.validate()){
+                         return;
+                        }
+                        else {
+                          Timer(const Duration(milliseconds: 100), () {
+                          Navigator.of(context).push(_createRoute());
+                        });
+                        }
+                      },
 
-
-
-                      child: AnimatedSize(
-                        curve: Curves.easeIn,
-                        duration: const Duration(seconds: 1),
+                      child: Container(
+                        alignment: Alignment.center,
+                        margin: const EdgeInsets.only(top: 10),
                         child: Image.asset(
                           'assets/icons/checkboxOn.png',
                           width: 12.h,
@@ -495,34 +555,23 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
                           fit: BoxFit.contain,
                         ),
                       ),
-                    ),
-                    */
-                    Container(
-                      alignment: Alignment.center,
-                      margin: const EdgeInsets.only(top: 10),
-                      child: Image.asset(
-                        'assets/icons/checkboxOn.png',
-                        width: 12.h,
-                        height: 12.h,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
 
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 2.5.h,
-              ),
-              const Flexible(
-                    flex:5,
-                    //fit: FlexFit.tight,
-                    child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: PrivacyPolicyLinkAndTermsOfService())),
-              SizedBox(height: 3.h,)
+                SizedBox(
+                  height: 2.5.h,
+                ),
+                const Flexible(
+                      flex:5,
+                      //fit: FlexFit.tight,
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: PrivacyPolicyLinkAndTermsOfService())),
+                SizedBox(height: 3.h,)
 
-            ],
+              ],
+            ),
           ),
         ),
 

@@ -183,7 +183,7 @@ class MyApp extends StatelessWidget {
             ItemEditScreen.routeName: (ctx) =>  ItemEditScreen(pageIndex: 0,),
             SearchScreen.routeName: (ctx) =>const  SearchScreen(),
             SearchResultsScreen.routeName: (ctx) => const SearchResultsScreen(),
-            MyProfileScreen.routeName: (ctx) => const MyProfileScreen(),
+            MyProfileScreen.routeName: (ctx) => MyProfileScreen(),
             ContactUsScreen.routeName: (ctx) => const ContactUsScreen(),
             RecentlyViewedItemsScreen.routeName: (ctx) => const RecentlyViewedItemsScreen(),
             FavoriteScreen.routeName: (ctx) =>const  FavoriteScreen(),

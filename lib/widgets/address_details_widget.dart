@@ -21,6 +21,16 @@ class AddressDetailsWidget extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 1.5.h,vertical: 0.2.h),
       //height: 7.h,
       child:TextFormField(
+
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "Address Description can not be null";
+        }
+        if (value.isNotEmpty) {
+          return null;
+        }
+      },
+
         decoration: InputDecoration(
           focusColor: Colors.grey,
           hintText: hintText,
@@ -47,7 +57,8 @@ class AddressDetailsWidget extends StatelessWidget {
         ),
         minLines: 8, // any number you need (It works as the rows for the textarea)
         keyboardType: TextInputType.multiline,
-        maxLines: null,
+        maxLines: null
+     ,
       ) ,);
   }
 }

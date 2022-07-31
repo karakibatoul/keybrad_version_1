@@ -7,6 +7,7 @@ import 'package:keybrad/widgets/filter_trier_round_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Utils/app_theme.dart';
 import '../widgets/bouncing_widget.dart';
+import '../widgets/items_widget/items_grid.dart';
 
 
 class UserDetailsScreen extends StatelessWidget {
@@ -20,7 +21,6 @@ class UserDetailsScreen extends StatelessWidget {
 
     Widget headDrawer =
     DrawerHeader(
-
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -81,84 +81,97 @@ class UserDetailsScreen extends StatelessWidget {
 
 
 
+
+
+
+
     Widget widget =  SizedBox(
       width: MediaQuery.of(context).size.width ,
-      child: Stack(
-        //crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Positioned(
-
-            child: Card(
-              color: AppTheme.greyBackgroundColor,
-              elevation: 0,
-              child: Row(
-                children:  [
-                  Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 15),
-                      child:   Material(
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.of(context).pop();
-                          },
-                            child:
-                            const IgnorePointer(
-                                child:
-                                BackWidget(height: 40,width: 40,)
-                            )),
-                      )),
-                  const Spacer(),
-
-                  Column(
-                    children: [
-                      Container(
-                         margin: const EdgeInsets.only(top: 20, right: 20, bottom: 5, left: 20),
-                       // margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 15),
-                        //  margin: const EdgeInsets.all(50),
-                        width: 40,
-                        height: 40,
-                        decoration:
-                        const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppTheme.backButtonBackgroundColor),
-                        child: Bouncing(
-                          onPress: (){
-                            Timer(const Duration(milliseconds: 200), () {
-                              Navigator.of(context, rootNavigator: true).pop();
-                            });
-                            },
-                          child: Image.asset('assets/icons/report btn.png',
-                                  width: IconTheme.of(context).size,
-                                  height: IconTheme.of(context).size),
-                        ),
-                          ),
-
-                      Text('Signaler',style: TextStyle(
-                          overflow: TextOverflow.visible,
-                          color: AppTheme.itemPriceColor,
-
-                          fontSize: 15.sp),)
-                    ],
-                  ),
-
-
-                ],
-              ),
-            ),
-          ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:  [
           Container(
-            height: MediaQuery.of(context).size.height*0.24,
-            //height: 20.h,
+            margin:const EdgeInsets.only(top: 22,left: 10),
+            child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: (){
+                  Navigator.of(context).pop();
+                },
+                child:
+                const IgnorePointer(
+                    child:
+                    BackWidget(height: 40,width: 40,)
+                )),
+          ),
+
+          /*Container(
+              height: MediaQuery.of(context).size.height*0.24,
+              //height: 20.h,
               margin: EdgeInsets.only(top: 2.h),
-              child: headDrawer),
+              child: headDrawer)
+             ,
+           */
+          const Spacer(),
+          Stack(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height*0.24,
+                //height: 20.h,
+                margin: EdgeInsets.only(top: 2.h),
+                child: headDrawer)
+              ,],
+          ),
+
+
+          Stack(
+            children: [
+              Container(
+                margin:const  EdgeInsets.only(top: 0),
+                child: Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(top: 20, right: 20, bottom: 5, left: 20),
+                      // margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 15),
+                      //  margin: const EdgeInsets.all(50),
+                      width: 40,
+                      height: 40,
+                      decoration:
+                      const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppTheme.backButtonBackgroundColor),
+                      child: Bouncing(
+                        onPress: (){
+                          Timer(const Duration(milliseconds: 200), () {
+                            Navigator.of(context, rootNavigator: true).pop();
+                          });
+                        },
+                        child: Image.asset('assets/icons/report btn.png',
+                            width: IconTheme.of(context).size,
+                            height: IconTheme.of(context).size),
+                      ),
+                    ),
+
+                    Text('Signaler',style: TextStyle(
+                        overflow: TextOverflow.visible,
+                        color: AppTheme.itemPriceColor,
+
+                        fontSize: 15.sp),)
+                  ],
+                ),
+              ),
+            ],
+          ),
 
 
 
-        ],),
+        ],
+      ),
     );
 
 
 
-Widget bottomDrawer =
+    Widget bottomDrawer =
 Container(
   margin:  EdgeInsets.only(right: 3.w,left: 1.w,top: 0.5.h,bottom: 2.h),
   //margin: const EdgeInsets.symmetric(horizontal: 12,vertical: 00),
@@ -187,58 +200,56 @@ Container(
   ),
 );
     return Scaffold(
-      body:
-     widget,
+      body: Stack(
+        children: [
+          Positioned(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: ListView(
+                children:  [
+                  widget,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  bottomDrawer,
 
-      /*Stack(
-      children: [
+                  const ItemsGrid(param: 1,),
+                ],
 
-        Positioned(
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        child: ListView(
-          children:  [
-            widget,
-            const SizedBox(
-              height: 10,
+              ),
             ),
-            bottomDrawer,
+          ),
 
-            const ItemsGrid(param: 1,),
-          ],
+          
+          Positioned(
+            height: 3.5.h,
+            bottom:  MediaQuery.of(context).size.height / 4-MediaQuery.of(context).size.height / 11,
+            right: 10,
+            width: 1.5.h+3.w,
+            //left:MediaQuery.of(context).size.width-100,
+            child: InkWell(
+              onTap: () {
+              },
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(topLeft:Radius.circular(80) ,bottomLeft: Radius.circular(80)),
+                child: Container(
+                  height: 10,
+                  width: 10,
+                  color: AppTheme.backgroundOrange,
+                  child: Bouncing(
+                    onPress: (){},
+                    child: Image.asset(
+                      'assets/icons/up.png',
 
-        ),
-      ),
-    ),
-      Positioned(
-        height: 3.5.h,
-        bottom:  MediaQuery.of(context).size.height / 4-MediaQuery.of(context).size.height / 11,
-        right: 10,
-        width: 1.5.h+3.w,
-        //left:MediaQuery.of(context).size.width-100,
-        child: InkWell(
-          onTap: () {
-          },
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(topLeft:Radius.circular(80) ,bottomLeft: Radius.circular(80)),
-            child: Container(
-              height: 10,
-              width: 10,
-              color: AppTheme.backgroundOrange,
-              child: Bouncing(
-                onPress: (){},
-                child: Image.asset(
-                  'assets/icons/up.png',
-
-                  fit: BoxFit.contain,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ),
 
-    ],),*/
+        ],),
     );
   }
 }

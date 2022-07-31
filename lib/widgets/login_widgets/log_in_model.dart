@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:keybrad/screens/login_screen.dart';
 import 'package:keybrad/screens/sign_up_screen.dart';
 import 'package:keybrad/widgets/login_widgets/forget_pass.dart';
@@ -61,6 +62,7 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
 
   String text = "text";
   bool _isObscure = true;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +78,9 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
         flex: 5,
         fit: FlexFit.loose,
         child: Container(
-          margin: commonMarginTextField,
           height: textFieldHeight,
-          child: TextField(
-            keyboardType: TextInputType.phone,
+          margin:commonMarginTextField,
+          child: IntlPhoneField(
             controller: textController,
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
@@ -98,6 +99,10 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
               fillColor: AppTheme.greyTextFieldColor,
               border: const OutlineInputBorder(),
             ),
+            initialCountryCode: 'IN',
+            onChanged: (phone) {
+              print(phone.completeNumber);
+            },
           ),
         ),
       );
@@ -166,299 +171,76 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
       ),
       child: Center(
         // alignment: Alignment.topCenter,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 5.h,
-            ),
-
-            Flexible(
-              flex: 3,
-              child: Container(
-                alignment: Alignment.center,
-                height: 4.h,
-                // padding: EdgeInsets.only(top: 20),
-
-
-                //  margin: EdgeInsets.only(top: 20),
-                //margin: commonMarginText,
-                //  padding: EdgeInsets.symmetric(vertical: 2),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      fit: FlexFit.tight,
-                      child: Container(
-                        //  height: 2.h,
-                        alignment: Alignment.center,
-                        child: RichText(
-                          text:  TextSpan(text: ' ', children: [
-                             TextSpan(
-                              text: 'Se connecter',
-                              style: TextStyle(
-                                  overflow: TextOverflow.visible,
-                                  color: AppTheme.blackTitleColor,
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.bold),
-
-                              recognizer:  TapGestureRecognizer()..onTap = () => Navigator.of(context).pushNamed(LoginScreen.routeName),
-                            )
-                          ]),
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      flex: 1,
-                      fit: FlexFit.tight,
-                      child: Container(
-                        alignment: Alignment.center,
-                        //   height: 2.h,
-                        child: RichText(
-                          text:  TextSpan(text: ' ', children: [
-                             TextSpan(
-                              text: 'S\' inscrire',
-                              style: TextStyle(
-                                  overflow: TextOverflow.visible,
-                                  color: AppTheme.greyTitleColor,
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.bold),
-
-                              recognizer:  TapGestureRecognizer()..onTap = () =>  Navigator.of(context)
-                                  .pushNamed(SignUpScreen.routeName),
-                            )
-                          ]),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 5.h,
               ),
-            ),
 
-
-            SizedBox(
-              height: 6.h,
-            ),
-
-
-
-
-
-
-            labelTextWidget('Numéro de téléphone:', 15.sp),
-            SizedBox(height:1.5.h ,),
-
-            textFieldWidget(textController),
-            SizedBox(height:0.2.h ,),
-            labelTextWidget('Mot de passe:', 15.sp),
-            SizedBox(height:1.5.h ,),
-
-            Flexible(
-              flex: 5,
-              fit: FlexFit.loose,
-              child: Container(
-                margin: commonMarginTextField,
-                height: textFieldHeight,
-                child: TextField(
-                  obscureText: _isObscure,
-                  decoration: InputDecoration(
-                    suffixIcon: IconButton(
-                      color: Colors.grey,
-                      onPressed: () {
-                        setState(() {
-                          _isObscure = !_isObscure;
-                        });
-                      },
-                      icon: Icon(!_isObscure
-                          ? Icons.visibility
-                          : Icons.visibility_off),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        color: Colors.grey,
-                      ),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        color: AppTheme.greyTextFieldColor,
-                      ),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    filled: true,
-                    fillColor: AppTheme.greyTextFieldColor,
-                    border: const OutlineInputBorder(),
-                  ),
-                ),
-              ),
-            ),
-            //SizedBox(height:1.2.h ,),
-
-
-             Flexible(
-                flex:5,
-                //fit: FlexFit.tight,
-                child:
-                    Center(
-                      child: Container(
-                        alignment: Alignment.center,
-                      //  margin: EdgeInsets.only(bottom: 10),
-                        child:  const ForgetPass(),),
-                    )
-               ),
-            Flexible(
-              flex: 0,
-              child: SizedBox(
-                height: 2.h,
-              ),
-            ),
-
-
-            Flexible(
-              flex: 5,
-              child: Center(
-                child:Container(
+              Flexible(
+                flex: 3,
+                child: Container(
                   alignment: Alignment.center,
-                  // margin:const  EdgeInsets.only(right: 100,left: 100,bottom: 100,top: 10),
+                  height: 4.h,
+                  // padding: EdgeInsets.only(top: 20),
 
-                  margin:  EdgeInsets.symmetric(horizontal: 25.w),
+
+                  //  margin: EdgeInsets.only(top: 20),
+                  //margin: commonMarginText,
+                  //  padding: EdgeInsets.symmetric(vertical: 2),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+
                     children: [
                       Flexible(
-                         flex: 1,
-                        //  fit: FlexFit.loose,
-                        child:
-                        Center(
-                          child: InkWell(
-                            onTap: () {
-                              // _updateSize();
-                              _controller.reset();
-                              //  _controller.forward();
-                              Timer(const Duration(milliseconds: 100), () {
-                                Navigator.of(context).push(_createRoute());
-                              });
+                        flex: 1,
+                        fit: FlexFit.tight,
+                        child: Container(
+                          //  height: 2.h,
+                          alignment: Alignment.center,
+                          child: RichText(
+                            text:  TextSpan(text: ' ', children: [
+                               TextSpan(
+                                text: 'Se connecter',
+                                style: TextStyle(
+                                    overflow: TextOverflow.visible,
+                                    color: AppTheme.blackTitleColor,
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold),
 
-                            },
-                            child:
-
-                            Container(
-                              alignment: Alignment.center,
-                              margin: const EdgeInsets.only(top: 10),
-                              child: Image.asset(
-                                'assets/icons/checkboxOn.png',
-                                width: 12.h,
-                                height: 12.h,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-
+                                recognizer:  TapGestureRecognizer()..onTap = () => Navigator.of(context).pushNamed(LoginScreen.routeName),
+                              )
+                            ]),
                           ),
                         ),
-                        /*Container(
-                          //  padding: const EdgeInsets.all(5),
-                           alignment: Alignment.center,
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.of(context)
-                                    .pushReplacementNamed(TabsScreen.routeName);
-                              },
-                              child: Container(
-
-                                  alignment: Alignment.center,
-                                  margin: const EdgeInsets.only(top: 10),
-                                  child: Image.asset(
-                                    'assets/icons/checkboxOn.png',
-                                    width: 12.h,
-                                    height: 12.h,
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                            )
-                          */
                       ),
-
                       Flexible(
                         flex: 1,
-                        // fit: FlexFit.loose,
+                        fit: FlexFit.tight,
                         child: Container(
                           alignment: Alignment.center,
+                          //   height: 2.h,
+                          child: RichText(
+                            text:  TextSpan(text: ' ', children: [
+                               TextSpan(
+                                text: 'S\' inscrire',
+                                style: TextStyle(
+                                    overflow: TextOverflow.visible,
+                                    color: AppTheme.greyTitleColor,
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold),
 
-
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, AddItemScreen.routeName);
-                          //    Navigator.pushNamed(context, ShowPictureFinalScreen.routeName);
-
-                             // Navigator.pushNamed(context, ItemEditScreen.routeName);
-
-                            },
-                            child: ClipRRect(
-
-
-                             // borderRadius: BorderRadius.all(Radius.circular(20)),
-                              child:
-                              Center(
-                                child: InkWell(
-                                  onTap: () {
-                                    // _updateSize();
-                                    _controller.reset();
-                                    //  _controller.forward();
-                                    Timer(const Duration(milliseconds: 100), () {
-                                      Navigator.of(context).push(_createRoute());
-                                    });
-
-                                  },
-                                  child:
-
-                                  Container(
-                                    alignment: Alignment.center,
-                                    margin: const EdgeInsets.only(top: 10),
-                                    decoration: BoxDecoration(
-                                      color: AppTheme.backgroundOrange,
-                                      border: Border.all(
-                                        color: Colors.transparent,
-                                      ),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.asset(
-                                      'assets/icons/fingerPrint.png',
-                                      width: 12.h,
-                                      height: 12.h,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-
-                                ),
-                              ),
-                              /*Container(
-                                alignment: Alignment.center,
-                                margin: const EdgeInsets.only(top: 10),
-                                decoration: BoxDecoration(
-                                  color: AppTheme.backgroundOrange,
-                                  border: Border.all(
-                                    color: Colors.transparent,
-                                  ),
-                                  shape: BoxShape.circle,
-                                ),
-
-                                child: Image.asset(
-                                  'assets/icons/fingerPrint.png',
-                                  width: 12.h,
-                                  height: 12.h,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                              */
-                            ),
+                                recognizer:  TapGestureRecognizer()..onTap = () =>  Navigator.of(context)
+                                    .pushNamed(SignUpScreen.routeName),
+                              )
+                            ]),
                           ),
                         ),
                       ),
@@ -466,17 +248,256 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-            ),
-            Flexible(
-              flex: 3,
-              child: SizedBox(
-                height: 2.5.h,
+
+
+              SizedBox(
+                height: 6.h,
               ),
-            ),
 
 
 
-          ],
+
+
+
+              labelTextWidget('Numéro de téléphone:', 15.sp),
+              SizedBox(height:1.5.h ,),
+
+              textFieldWidget(textController),
+              SizedBox(height:0.2.h ,),
+              labelTextWidget('Mot de passe:', 15.sp),
+              SizedBox(height:1.5.h ,),
+
+              Flexible(
+                flex: 5,
+                fit: FlexFit.loose,
+                child: Container(
+                  margin: commonMarginTextField,
+                  height: textFieldHeight,
+                  child: TextFormField(
+                      validator: (value){
+                        if( value!.isEmpty){
+                          return "Password can not be null";
+                        }
+                        if(value.isNotEmpty){
+                          return null;
+                        }
+                        return null;
+                    },
+                    obscureText: _isObscure,
+                    decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        color: Colors.grey,
+                        onPressed: () {
+                          setState(() {
+                            _isObscure = !_isObscure;
+                          });
+                        },
+                        icon: Icon(!_isObscure
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Colors.grey,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: AppTheme.greyTextFieldColor,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      filled: true,
+                      fillColor: AppTheme.greyTextFieldColor,
+                      border: const OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+              ),
+              //SizedBox(height:1.2.h ,),
+
+
+               Flexible(
+                  flex:5,
+                  //fit: FlexFit.tight,
+                  child:
+                      Center(
+                        child: Container(
+                          alignment: Alignment.center,
+                        //  margin: EdgeInsets.only(bottom: 10),
+                          child:  const ForgetPass(),),
+                      )
+                 ),
+              Flexible(
+                flex: 0,
+                child: SizedBox(
+                  height: 2.h,
+                ),
+              ),
+
+
+              Flexible(
+                flex: 5,
+                child: Center(
+                  child:Container(
+                    alignment: Alignment.center,
+                    // margin:const  EdgeInsets.only(right: 100,left: 100,bottom: 100,top: 10),
+
+                    margin:  EdgeInsets.symmetric(horizontal: 25.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                           flex: 1,
+                          //  fit: FlexFit.loose,
+                          child:
+                          Center(
+                            child: InkWell(
+                              onTap: () {
+                                // _updateSize();
+                                _controller.reset();
+                                //  _controller.forward();
+                                if(!_formKey.currentState!.validate()){
+                                  return;
+                                }
+                                else {
+                                  Timer(const Duration(milliseconds: 100), () {
+                                    Navigator.of(context).push(_createRoute());
+                                  });
+                                }
+                              },
+                              child:
+
+                              Container(
+                                alignment: Alignment.center,
+                                margin: const EdgeInsets.only(top: 10),
+                                child: Image.asset(
+                                  'assets/icons/checkboxOn.png',
+                                  width: 12.h,
+                                  height: 12.h,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+
+                            ),
+                          ),
+                          /*Container(
+                            //  padding: const EdgeInsets.all(5),
+                             alignment: Alignment.center,
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushReplacementNamed(TabsScreen.routeName);
+                                },
+                                child: Container(
+
+                                    alignment: Alignment.center,
+                                    margin: const EdgeInsets.only(top: 10),
+                                    child: Image.asset(
+                                      'assets/icons/checkboxOn.png',
+                                      width: 12.h,
+                                      height: 12.h,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            */
+                        ),
+
+                        Flexible(
+                          flex: 1,
+                          // fit: FlexFit.loose,
+                          child: Container(
+                            alignment: Alignment.center,
+
+
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, AddItemScreen.routeName);
+                            //    Navigator.pushNamed(context, ShowPictureFinalScreen.routeName);
+
+                               // Navigator.pushNamed(context, ItemEditScreen.routeName);
+
+                              },
+                              child: ClipRRect(
+
+
+                               // borderRadius: BorderRadius.all(Radius.circular(20)),
+                                child:
+                                Center(
+                                  child: InkWell(
+                                    onTap: () {
+                                      // _updateSize();
+                                      _controller.reset();
+                                      //  _controller.forward();
+                                      Timer(const Duration(milliseconds: 100), () {
+                                        Navigator.of(context).push(_createRoute());
+                                      });
+
+                                    },
+                                    child:
+
+                                    Container(
+                                      alignment: Alignment.center,
+                                      margin: const EdgeInsets.only(top: 10),
+                                      decoration: BoxDecoration(
+                                        color: AppTheme.backgroundOrange,
+                                        border: Border.all(
+                                          color: Colors.transparent,
+                                        ),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.asset(
+                                        'assets/icons/fingerPrint.png',
+                                        width: 12.h,
+                                        height: 12.h,
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
+
+                                  ),
+                                ),
+                                /*Container(
+                                  alignment: Alignment.center,
+                                  margin: const EdgeInsets.only(top: 10),
+                                  decoration: BoxDecoration(
+                                    color: AppTheme.backgroundOrange,
+                                    border: Border.all(
+                                      color: Colors.transparent,
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+
+                                  child: Image.asset(
+                                    'assets/icons/fingerPrint.png',
+                                    width: 12.h,
+                                    height: 12.h,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                                */
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Flexible(
+                flex: 3,
+                child: SizedBox(
+                  height: 2.5.h,
+                ),
+              ),
+
+
+
+            ],
+          ),
         ),
       ),
 
