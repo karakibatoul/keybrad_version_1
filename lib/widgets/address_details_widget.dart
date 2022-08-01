@@ -24,11 +24,12 @@ class AddressDetailsWidget extends StatelessWidget {
 
       validator: (value) {
         if (value!.isEmpty) {
-          return "Address Description can not be null";
+          return "La description de l'adresse ne peut pas être nulle";
         }
         if (value.isNotEmpty) {
           return null;
         }
+        return null;
       },
 
         decoration: InputDecoration(

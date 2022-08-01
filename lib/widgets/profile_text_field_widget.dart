@@ -13,6 +13,7 @@ class ProfileTextFieldWidget extends StatelessWidget {
   final double? hintFontSize;
   final TextInputType keyboardType;
   final String validateText;
+  final  Function(String)? onChanged;
 
 
    const ProfileTextFieldWidget(
@@ -24,7 +25,8 @@ class ProfileTextFieldWidget extends StatelessWidget {
         required this.textFieldHeight,
         required this.hintFontSize,
         required this.keyboardType,
-        required this.validateText
+        required this.validateText,
+        this.onChanged
       }) : super(key: key);
 
 
@@ -35,14 +37,15 @@ class ProfileTextFieldWidget extends StatelessWidget {
       margin: margin,
       height: textFieldHeight,
       child: TextFormField(
+          onChanged: (value){},
           validator: (value){
             if( value!.isEmpty){
               return validateText;
             }
-            if(value.isNotEmpty){
+            else{
               return null;
             }
-            return null;
+
         },
         keyboardType: keyboardType,
         cursorColor: Colors.grey,

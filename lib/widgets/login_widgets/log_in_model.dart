@@ -172,6 +172,7 @@ class _LoginModelState extends State<LoginModel> with TickerProviderStateMixin {
       child: Center(
         // alignment: Alignment.topCenter,
         child: Form(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           key: _formKey,
           child: Column(
             mainAxisSize: MainAxisSize.max,

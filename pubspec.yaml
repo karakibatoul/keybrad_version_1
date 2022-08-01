@@ -57,6 +57,7 @@ dependencies:
   flutter_animated_button: ^2.0.0
   curved_navigation_bar: ^1.0.3
   intl_phone_field: ^3.1.0
+  dropdown_textfield: ^1.0.1
 
 dev_dependencies:
   flutter_test:

@@ -179,7 +179,7 @@ class MyApp extends StatelessWidget {
             AboutUsScreen.routeName: (ctx) =>const  AboutUsScreen(),
             ItemDetails.routeName: (ctx) =>const  ItemDetails(indexPage: 0,),
             AddItemScreen.routeName: (ctx) =>const  AddItemScreen(),
-            AddItemStep2Screen.routeName: (ctx) =>const  AddItemStep2Screen(),
+            AddItemStep2Screen.routeName: (ctx) =>  AddItemStep2Screen(),
             ItemEditScreen.routeName: (ctx) =>  ItemEditScreen(pageIndex: 0,),
             SearchScreen.routeName: (ctx) =>const  SearchScreen(),
             SearchResultsScreen.routeName: (ctx) => const SearchResultsScreen(),

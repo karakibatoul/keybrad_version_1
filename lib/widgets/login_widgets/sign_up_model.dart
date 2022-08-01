@@ -89,7 +89,6 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
   @override
   Widget build(BuildContext context) {
     //in the second stage every textField will have a controller
-    TextEditingController textController = TextEditingController();
     TextEditingController _nameController = TextEditingController();
     TextEditingController _phoneController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
@@ -203,6 +202,7 @@ class _SignUpModelState extends State<SignUpModel>  with TickerProviderStateMixi
         child: Center(
          // alignment: Alignment.topCenter,
           child: Form(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             key: _formKey,
             child: Column(
               mainAxisSize: MainAxisSize.max,

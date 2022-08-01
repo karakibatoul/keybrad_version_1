@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:keybrad/providers/image_files.dart';
 import 'package:keybrad/screens/add_item_step_2_screen.dart';
@@ -49,12 +50,24 @@ class _AddItemScreenState extends State<AddItemScreen> {
 
   List<String> images = [];
   final _formKey = GlobalKey<FormState>();
+  final  telephoneController = TextEditingController();
+  final categoryController = TextEditingController();
+  final prixController = TextEditingController();
+  late SingleValueDropDownController _cnt;
+
+
+  @override
+  void initState() {
+    _cnt =SingleValueDropDownController();
+    super.initState();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     final imageFiles = Provider.of<ImageFiles>(context);
-    final  telephoneController = TextEditingController();
-    final prixController = TextEditingController();
+    var validateText = 'Le prix ne peut pas être nul';
+
      positionedOnTap(int index)  {
       if(imageFiles.images.length>=index+1) {
         if (imageFiles.images.isNotEmpty) {
@@ -88,7 +101,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
 
     Route _createSecondAddItemRoute() {
       return PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => const AddItemStep2Screen(),
+        pageBuilder: (context, animation, secondaryAnimation) =>  const AddItemStep2Screen(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(0.0, 1.0);
           const end = Offset.zero;
@@ -140,12 +153,11 @@ class _AddItemScreenState extends State<AddItemScreen> {
         controller:prixController ,
         validator: (value){
           if( value!.isEmpty){
-            return "Prix can not be null";
+            return validateText;
           }
-          if(value.isNotEmpty){
+          else{
             return null;
           }
-          return null;
         },
 
         decoration: InputDecoration(
@@ -189,6 +201,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
         child: SizedBox(
           height: MediaQuery.of(context).size.height-2*kToolbarHeight,
           child: Form(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             key:_formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -218,9 +231,19 @@ class _AddItemScreenState extends State<AddItemScreen> {
                 ),
                 SizedBox(height: 5.h,),
                 Flexible(
-                  flex: 2,
+                  flex: 3,
                   child: ProfileTextFieldWidget(
-                    validateText: 'Title can not be null',
+                    onChanged: (value){
+                      if(!_formKey.currentState!.validate()){
+                        return;
+                      }
+                      else {
+                        Timer(const Duration(milliseconds: 100), () {
+                          Navigator.of(context).push(_createSecondAddItemRoute());
+                        });
+                      }
+                    },
+                    validateText: 'Le titre ne peut pas être nul',
                     keyboardType: TextInputType.text,
                     controller: telephoneController,
                     hintText: 'Titre:',
@@ -232,7 +255,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                 ),
                 SizedBox(height: 2.h,),
                 Flexible(
-                  flex: 2,
+                  flex: 3,
                     child: prixTextField),
                 SizedBox(height: 2.h,),
                 const Flexible(
@@ -250,22 +273,73 @@ class _AddItemScreenState extends State<AddItemScreen> {
                         hintFontSize: 17.sp,)),
                 ),
                 SizedBox(height: 2.h,),
-                Flexible(
-                  flex: 2,
-                  child: ProfileTextFieldWidget(
-                    validateText: 'Category can not be null',
-                    keyboardType: TextInputType.text,
-                    controller: telephoneController,
-                    hintText: 'Catégorie:',
-                    textFieldHeight: 6.h,
-                    margin: EdgeInsets.symmetric(horizontal: 2.h,),
-                    hintColor: AppTheme.filterLabelColor,
-                    hintFontSize: 17.sp,
+                Container(
+                  margin:EdgeInsets.symmetric(horizontal: 2.h,) ,
+                  height: 6.h,
+                  child: DropDownTextField(
+                    textFieldDecoration: InputDecoration(
+                    focusColor: Colors.grey,
+                    hintText: "Catégorie",
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.grey,
+                      ),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+
+
+
+                    hintStyle:  TextStyle(
+                        color: AppTheme.filterLabelColor,
+                        fontSize: 17.sp
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: AppTheme.greyBackgroundColor,
+                      ),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    filled: true,
+                    fillColor: AppTheme.greyTextFieldColor,
+                    border: const OutlineInputBorder(),
+                  ),
+                    // initialValue: "name4",
+                    singleController: _cnt,
+                    clearOption: false,
+                    enableSearch: true,
+                    validator: (value) {
+                      if (value == null) {
+                        return "Required field";
+                      } else {
+                        return null;
+                      }
+                    },
+                    dropDownItemCount: 6,
+                    dropDownList: const [
+                      DropDownValueModel(name: 'name1', value: "value1"),
+                      DropDownValueModel(
+                          name: 'name2',
+                          value: "value2",
+                          toolTipMsg:
+                          "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+                      DropDownValueModel(name: 'name3', value: "value3"),
+                      DropDownValueModel(
+                          name: 'name4',
+                          value: "value4",
+                          toolTipMsg:
+                          "DropDownButton is a widget that we can use to select one unique value from a set of values"),
+                      DropDownValueModel(name: 'name5', value: "value5"),
+                      DropDownValueModel(name: 'name6', value: "value6"),
+                      DropDownValueModel(name: 'name7', value: "value7"),
+                      DropDownValueModel(name: 'name8', value: "value8"),
+                    ],
+                    onChanged: (val) {},
                   ),
                 ),
+
                 SizedBox(height: 2.h,),
                 Flexible(
-                  flex: 5,
+                  flex: 6,
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -380,7 +454,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            /*if(!_formKey.currentState!.validate()){
+                            if(!_formKey.currentState!.validate()){
                               return;
                             }
                             else {
@@ -389,10 +463,11 @@ class _AddItemScreenState extends State<AddItemScreen> {
                               });
                             }
 
-                             */
-                            Timer(const Duration(milliseconds: 100), () {
+
+                            /*Timer(const Duration(milliseconds: 100), () {
                               Navigator.of(context).push(_createSecondAddItemRoute());
                             });
+                            */
 
                           },
                           child: Bouncing(

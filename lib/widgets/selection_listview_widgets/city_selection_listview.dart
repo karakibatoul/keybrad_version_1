@@ -153,6 +153,7 @@ class _CitySelectionListviewState extends State<CitySelectionListview> {
 
   void submit() {
     final args = ModalRoute.of(context)!.settings.arguments;
+    print('args in submit:${args.toString()}');
     Navigator.pushReplacementNamed(
         context,
         args.toString(),
